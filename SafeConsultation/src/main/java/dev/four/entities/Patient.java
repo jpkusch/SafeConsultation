@@ -22,7 +22,7 @@ public class Patient {
 	@Column(name = "p_id")
 	private int pid;
 	
-	@Column(name = "username")
+	@Column(name = "username", unique = true)
 	private String username;
 	
 	@Column(name = "password")
