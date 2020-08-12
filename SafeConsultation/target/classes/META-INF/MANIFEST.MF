@@ -1,5 +1,6 @@
 Manifest-Version: 1.0
-Built-By: Justin
-Build-Jdk: 14
+Build-Jdk-Spec: 14
+Implementation-Title: SafeConsultation
+Implementation-Version: 0.0.1-SNAPSHOT
 Created-By: Maven Integration for Eclipse
 
