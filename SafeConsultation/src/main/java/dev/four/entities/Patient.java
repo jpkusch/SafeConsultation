@@ -1,14 +1,48 @@
 package dev.four.entities;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
+@Entity
+@Table(name = "patient")
 public class Patient {
 	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "p_id")
 	private int pid;
+	
+	@Column(name = "username")
 	private String username;
+	
+	@Column(name = "password")
 	private String password;
+	
+	@Column(name = "age")
 	private int age;
+	
+	@Column(name = "height")
 	private double height;
+	
+	@Column(name = "weight")
 	private double weight;
+	
+	@Column(name = "blood_type")
 	private char bloodType;
+	
+	@OneToMany(mappedBy = "patient", cascade = CascadeType.ALL)
+	@JsonManagedReference
+	private List<Appointment> appointments;
 	
 	public Patient() {
 		super();

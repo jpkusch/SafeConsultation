@@ -2,16 +2,52 @@ package dev.four.entities;
 
 import java.time.LocalDateTime;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
+@Entity
+@Table(name="appointment")
 public class Appointment {
 	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "a_id")
 	private int aid;
+	
+	@Column(name = "symptoms")
 	private String symptoms;
+	
+	@Column(name = "status")
 	private String status;
+	
+	@Column(name = "apt_time")
 	private LocalDateTime aptTime;
+	
+	@Column(name = "diagnosis")
 	private String diagnosis;
+	
+	@Column(name = "treatment")
 	private String treatment;
+	
+	@Column(name = "meeting_link")
 	private String meetingLink;
+	
+	@ManyToOne
+	@JoinColumn(name="d_id")
+	@JsonBackReference
 	private Doctor doctor;
+	
+	@ManyToOne
+	@JoinColumn(name="p_id")
+	@JsonBackReference
 	private Patient patient;
 	
 	public Appointment() {
