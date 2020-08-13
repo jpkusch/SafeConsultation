@@ -13,26 +13,26 @@ import org.springframework.web.bind.annotation.RestController;
 import dev.four.entities.Appointment;
 import dev.four.services.AppointmentService;
 
-//
-//@Component
-//@RestController
-//public class AppointmentController {
-//	
-//	@Autowired
-//	//private AppointmentService aserv;
-//	
-//	@RequestMapping(value = "/appointments", method = RequestMethod.POST)
-//	public Appointment createAppointment(@RequestBody Appointment appointment) {
-//		return null;
-//	}
-//	
-//	@RequestMapping(value = "/appointments/{id}", method = RequestMethod.GET)
-//	public Appointment getAppointmentById(@PathVariable int id) {
-//		return null;
-//	}
-//
-//	@RequestMapping(value = "/appointments", method = RequestMethod.PUT)
-//	public Appointment updateAppointment(@RequestBody Appointment appointment) {
-//		return null;
-//	}
-//}
+
+@Component
+@RestController
+public class AppointmentController {
+	
+	@Autowired
+	//private AppointmentService aserv;
+	
+	@RequestMapping(value = "/appointments", method = RequestMethod.POST)
+	public Appointment createAppointment(@RequestBody Appointment appointment) {
+		return null;
+	}
+	
+	@RequestMapping(value = "/appointments/{id}", method = RequestMethod.GET)
+	public Appointment getAppointmentById(@PathVariable int id) {
+		return null;
+	}
+
+	@RequestMapping(value = "/appointments", method = RequestMethod.PUT)
+	public Appointment updateAppointment(@RequestBody Appointment appointment) {
+		return null;
+	}
+}

@@ -15,36 +15,36 @@ import dev.four.entities.Appointment;
 import dev.four.entities.Patient;
 import dev.four.services.PatientService;
 
-//@Component
-//@RestController
-//public class PatientController {
-//	
-//	@Autowired
-//	PatientService pserv;
-//	
-//	@RequestMapping(value = "/patients", method = RequestMethod.POST)
-//	public Patient createPatient(@RequestBody Patient patient) {
-//		return null;
-//	}
-//	
-//	@RequestMapping(value = "/patients/{id}", method = RequestMethod.GET)
-//	public Patient getPatientById(@PathVariable int id) {
-//		return null;
-//	}
-//	
-//	@RequestMapping(value = "/patients/{id}/appointments", method = RequestMethod.GET)
-//	public List<Appointment> getAppointmentsByPatient(@PathVariable int id) {
-//		return null;
-//	}
-//	
-//	@RequestMapping(value = "/patients", method = RequestMethod.PUT)
-//	public Patient updatePatient(@RequestBody Patient patient) {
-//		return null;
-//	}
-//	
-//	@RequestMapping(value = "/patients/login", method = RequestMethod.POST)
-//	public Patient logInPatient(@RequestBody LoginDTO ldto) {
-//		return null;
-//	}
-//
-//}
+@Component
+@RestController
+public class PatientController {
+	
+	@Autowired
+	PatientService pserv;
+	
+	@RequestMapping(value = "/patients", method = RequestMethod.POST)
+	public Patient createPatient(@RequestBody Patient patient) {
+		return null;
+	}
+	
+	@RequestMapping(value = "/patients/{id}", method = RequestMethod.GET)
+	public Patient getPatientById(@PathVariable int id) {
+		return null;
+	}
+	
+	@RequestMapping(value = "/patients/{id}/appointments", method = RequestMethod.GET)
+	public List<Appointment> getAppointmentsByPatient(@PathVariable int id) {
+		return null;
+	}
+	
+	@RequestMapping(value = "/patients", method = RequestMethod.PUT)
+	public Patient updatePatient(@RequestBody Patient patient) {
+		return null;
+	}
+	
+	@RequestMapping(value = "/patients/login", method = RequestMethod.POST)
+	public Patient logInPatient(@RequestBody LoginDTO ldto) {
+		return null;
+	}
+
+}
