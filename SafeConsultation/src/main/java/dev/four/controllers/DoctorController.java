@@ -16,46 +16,46 @@ import dev.four.entities.Doctor;
 import dev.four.entities.Patient;
 import dev.four.services.DoctorService;
 
-@Component
-@RestController
-public class DoctorController {
-	
-	@Autowired
-	DoctorService dserv;
-	
-	@RequestMapping(value = "/doctors", method = RequestMethod.POST)
-	public Doctor createDoctor(@RequestBody Doctor doctor) {
-		return null;
-	}
-	
-	@RequestMapping(value = "/doctors/{id}", method = RequestMethod.GET)
-	public Doctor getDoctorById(@PathVariable int id) {
-		return null;
-	}
-	
-	@RequestMapping(value = "/doctors/{id}/appointments", method = RequestMethod.GET)
-	public List<Appointment> getAppointmentsByDoctor(@PathVariable int id) {
-		return null;
-	}
-	
-	@RequestMapping(value = "/doctors", method = RequestMethod.GET)
-	public List<Doctor> getAllDoctors(){
-		return null;
-	}
-	
-	@RequestMapping(value = "/doctors/{id}/patients", method = RequestMethod.GET)
-	public List<Patient> getAllPatientsByDoctor(@PathVariable int id) {
-		return null;
-	}
-	
-	@RequestMapping(value = "/doctors", method = RequestMethod.PUT)
-	public Doctor updateDoctor(@RequestBody Doctor doctor) {
-		return null;
-	}
-	
-	@RequestMapping(value = "/doctors/login", method = RequestMethod.POST)
-	public Doctor logInDoctor(@RequestBody LoginDTO ldto) {
-		return null;
-	}
+//@Component
+//@RestController
+//public class DoctorController {
+//	
+//	@Autowired
+//	DoctorService dserv;
+//	
+//	@RequestMapping(value = "/doctors", method = RequestMethod.POST)
+//	public Doctor createDoctor(@RequestBody Doctor doctor) {
+//		return null;
+//	}
+//	
+//	@RequestMapping(value = "/doctors/{id}", method = RequestMethod.GET)
+//	public Doctor getDoctorById(@PathVariable int id) {
+//		return null;
+//	}
+//	
+//	@RequestMapping(value = "/doctors/{id}/appointments", method = RequestMethod.GET)
+//	public List<Appointment> getAppointmentsByDoctor(@PathVariable int id) {
+//		return null;
+//	}
+//	
+//	@RequestMapping(value = "/doctors", method = RequestMethod.GET)
+//	public List<Doctor> getAllDoctors(){
+//		return null;
+//	}
+//	
+//	@RequestMapping(value = "/doctors/{id}/patients", method = RequestMethod.GET)
+//	public List<Patient> getAllPatientsByDoctor(@PathVariable int id) {
+//		return null;
+//	}
+//	
+//	@RequestMapping(value = "/doctors", method = RequestMethod.PUT)
+//	public Doctor updateDoctor(@RequestBody Doctor doctor) {
+//		return null;
+//	}
+//	
+//	@RequestMapping(value = "/doctors/login", method = RequestMethod.POST)
+//	public Doctor logInDoctor(@RequestBody LoginDTO ldto) {
+//		return null;
+//	}
 
-}
+//}

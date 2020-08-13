@@ -38,7 +38,7 @@ public class Patient {
 	private double weight;
 	
 	@Column(name = "blood_type")
-	private char bloodType;
+	private String bloodType;
 	
 	@OneToMany(mappedBy = "patient", cascade = CascadeType.ALL)
 	@JsonManagedReference
@@ -49,7 +49,7 @@ public class Patient {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Patient(int pid, String username, String password, int age, double height, double weight, char bloodType) {
+	public Patient(int pid, String username, String password, int age, double height, double weight, String bloodType) {
 		super();
 		this.pid = pid;
 		this.username = username;
@@ -108,11 +108,11 @@ public class Patient {
 		this.weight = weight;
 	}
 
-	public char getBloodType() {
+	public String getBloodType() {
 		return bloodType;
 	}
 
-	public void setBloodType(char bloodType) {
+	public void setBloodType(String bloodType) {
 		this.bloodType = bloodType;
 	}
 
