@@ -19,7 +19,7 @@ import dev.four.services.AppointmentService;
 public class AppointmentController {
 	
 	@Autowired
-	private AppointmentService aserv;
+	//private AppointmentService aserv;
 	
 	@RequestMapping(value = "/appointments", method = RequestMethod.POST)
 	public Appointment createAppointment(@RequestBody Appointment appointment) {
