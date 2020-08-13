@@ -10,4 +10,6 @@ import dev.four.entities.Patient;
 @Repository
 public interface PatientRepository extends CrudRepository<Patient, Integer>{
 
+	Patient findByUsername(String username);
+	
 }
