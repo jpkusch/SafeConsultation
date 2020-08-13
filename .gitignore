@@ -25,7 +25,7 @@ hs_err_pid*
 # eclipse
 *.settings
 *.prefs
-/target
+/SafeConsultation/target
 *.classpath
 *.project
 *.properties
