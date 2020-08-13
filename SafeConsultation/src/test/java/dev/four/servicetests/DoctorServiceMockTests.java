@@ -18,6 +18,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.web.servlet.MockMvc;
 
+import dev.four.dtos.LoginDTO;
 import dev.four.entities.Appointment;
 import dev.four.entities.Doctor;
 import dev.four.entities.Patient;
@@ -41,11 +42,6 @@ class DoctorServiceMockTests {
 	private Doctor badDoctor = new Doctor(70, "McBad", "Bader", "Badiology", new ArrayList<Appointment>());
 	private Doctor updateDoctor = new Doctor(0, "McFakerson", "Faker", "Fakiology", new ArrayList<Appointment>());
 	private List<Doctor> allDoctors = new ArrayList<Doctor>();
-	
-	@BeforeAll
-	static void setupMocks() {
-
-	}
 
 	@Test
 	void test() {
@@ -87,12 +83,36 @@ class DoctorServiceMockTests {
 		allDoctors.add(doctor);
 		Mockito.when(drepo.findAll()).thenReturn(allDoctors);
 		List<Doctor> doc = dserv.getAllDoctors();
-		Assertions.assertEquals(doc.size(), allDoctors.size();)
+		Assertions.assertEquals(doc.size(), allDoctors.size());
 	}
 	
 	@Test
 	void testLogin() {
 		Mockito.when(drepo.findByUsername("McFake")).thenReturn(doctor);
+		Doctor doc = dserv.logIn(new LoginDTO("McFake", "Faker"));
+		Assertions.assertEquals(doc.getDid(), doctor.getDid());
 	}
-
+	
+	@Test
+	void testBadUsernameLogin() {
+		Mockito.when(drepo.findByUsername("McFake")).thenReturn(doctor);
+		Doctor doc = dserv.logIn(new LoginDTO("McReal", "Faker"));
+		Assertions.assertNull(doc);
+	}
+	
+	@Test
+	void testBadPasswordLogin() {
+		Mockito.when(drepo.findByUsername("McFake")).thenReturn(doctor);
+		Doctor doc = dserv.logIn(new LoginDTO("McFake", "Fakest"));
+		Assertions.assertNull(doc);
+	}
+	
+	@Test
+	void getAllPatientsByDoctor() {
+		List<Appointment> appt = doctor.getAppointments();
+		appt.add(docAppointment);
+		doctor.setAppointments(appt);
+		List<Patient> pat = dserv.getAllPatientsByDoctor(doctor);
+		Assertions.assertEquals(pat.get(0).getPid(), patient.getPid());
+	}
 }
