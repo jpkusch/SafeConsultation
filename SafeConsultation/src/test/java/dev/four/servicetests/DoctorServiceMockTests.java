@@ -42,19 +42,6 @@ class DoctorServiceMockTests {
 	private Doctor badDoctor = new Doctor(70, "McBad", "Bader", "Badiology", new ArrayList<Appointment>());
 	private Doctor updateDoctor = new Doctor(0, "McFakerson", "Faker", "Fakiology", new ArrayList<Appointment>());
 	private List<Doctor> allDoctors = new ArrayList<Doctor>();
-
-	@Test
-	void test() {
-		List<Appointment> appt = doctor.getAppointments();
-		appt.add(docAppointment);
-		doctor.setAppointments(appt);
-		Mockito.when(drepo.save(doctorToMake)).thenReturn(doctor);
-		
-		Mockito.when(drepo.findById(1)).thenReturn(Optional.of(doctor));
-		Mockito.when(drepo.save(updateDoctor)).thenReturn(updateDoctor);
-		
-		Mockito.when(drepo.findByUsername("McFake")).thenReturn(doctor);
-	}
 	
 	@Test
 	void testCreate() {
@@ -88,21 +75,27 @@ class DoctorServiceMockTests {
 	
 	@Test
 	void testLogin() {
-		Mockito.when(drepo.findByUsername("McFake")).thenReturn(doctor);
+		List<Doctor> doctors = new ArrayList<Doctor>();
+		doctors.add(doctor);
+		Mockito.when(drepo.findByUsername("McFake")).thenReturn(doctors);
 		Doctor doc = dserv.logIn(new LoginDTO("McFake", "Faker"));
 		Assertions.assertEquals(doc.getDid(), doctor.getDid());
 	}
 	
 	@Test
 	void testBadUsernameLogin() {
-		Mockito.when(drepo.findByUsername("McFake")).thenReturn(doctor);
+		List<Doctor> doctors = new ArrayList<Doctor>();
+		doctors.add(doctor);
+		Mockito.when(drepo.findByUsername("McFake")).thenReturn(doctors);
 		Doctor doc = dserv.logIn(new LoginDTO("McReal", "Faker"));
 		Assertions.assertNull(doc);
 	}
 	
 	@Test
 	void testBadPasswordLogin() {
-		Mockito.when(drepo.findByUsername("McFake")).thenReturn(doctor);
+		List<Doctor> doctors = new ArrayList<Doctor>();
+		doctors.add(doctor);
+		Mockito.when(drepo.findByUsername("McFake")).thenReturn(doctors);
 		Doctor doc = dserv.logIn(new LoginDTO("McFake", "Fakest"));
 		Assertions.assertNull(doc);
 	}

@@ -28,7 +28,7 @@ class PatientRepoTests {
 	@Commit
 	void createPatient() {
 		
-		Patient patient = new Patient(0, "princessPeach", "OkeyDokey", 23, 5, 105, 'O');
+		Patient patient = new Patient(0, "princessPeach", "OkeyDokey", 23, 5, 105, "O");
 		patrep.save(patient);
 		Assertions.assertNotEquals(0, patient.getPid());
 	}
@@ -53,7 +53,7 @@ class PatientRepoTests {
 	@Order(4)
 	void getAllPatients() {
 		
-		Patient toad = new Patient(0, "Toad", "Bingo!I'mthebest", 5, 3.31, 77.1618, 'A');
+		Patient toad = new Patient(0, "Toad", "Bingo!I'mthebest", 5, 3.31, 77.1618, "A");
 		patrep.save(toad);
 		List<Patient> allPatients = (List<Patient>) patrep.findAll();
 		Assertions.assertEquals(2, allPatients.size());

@@ -1,5 +1,7 @@
 package dev.four.servicetests;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 import org.junit.jupiter.api.Assertions;
@@ -49,7 +51,9 @@ public class PatientServiceMockTests {
 	
 	@Test
 	void login() {
-		Mockito.when(prep.findByUsername("username")).thenReturn(new Patient(1, "username", "password", 50, 120, 72, "O-Neg"));
+		List<Patient> patientList = new ArrayList<Patient>();
+		patientList.add(new Patient(1, "username", "password", 50, 120, 72, "O-Neg"));
+		Mockito.when(prep.findByUsername("username")).thenReturn(patientList);
 		
 		Assertions.assertEquals(pserv.logIn(new LoginDTO("username", "password")).getPid(), 1);
 	}
