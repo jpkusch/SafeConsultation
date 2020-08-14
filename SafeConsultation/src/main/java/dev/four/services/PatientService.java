@@ -11,6 +11,6 @@ public interface PatientService {
 	
 	Patient updatePatient(Patient patient);
 	
-	boolean logIn(LoginDTO loginInfo);
+	Patient logIn(LoginDTO loginInfo);
 
 }

@@ -38,7 +38,7 @@ public class Patient {
 	private double weight;
 	
 	@Column(name = "blood_type")
-	private char bloodType;
+	private String bloodType;
 	
 	@OneToMany(mappedBy = "patient", cascade = CascadeType.ALL)
 	@JsonManagedReference
@@ -49,7 +49,7 @@ public class Patient {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Patient(int pid, String username, String password, int age, double height, double weight, char bloodType) {
+	public Patient(int pid, String username, String password, int age, double height, double weight, String bloodType) {
 		super();
 		this.pid = pid;
 		this.username = username;
@@ -58,6 +58,19 @@ public class Patient {
 		this.height = height;
 		this.weight = weight;
 		this.bloodType = bloodType;
+	}
+	
+	public Patient(int pid, String username, String password, int age, double height, double weight, String bloodType,
+			List<Appointment> appointments) {
+		super();
+		this.pid = pid;
+		this.username = username;
+		this.password = password;
+		this.age = age;
+		this.height = height;
+		this.weight = weight;
+		this.bloodType = bloodType;
+		this.appointments = appointments;
 	}
 
 	public int getPid() {
@@ -108,18 +121,27 @@ public class Patient {
 		this.weight = weight;
 	}
 
-	public char getBloodType() {
+	public String getBloodType() {
 		return bloodType;
 	}
 
-	public void setBloodType(char bloodType) {
+	public void setBloodType(String bloodType) {
 		this.bloodType = bloodType;
+	}
+	
+	public List<Appointment> getAppointments() {
+		return appointments;
+	}
+
+	public void setAppointments(List<Appointment> appointments) {
+		this.appointments = appointments;
 	}
 
 	@Override
 	public String toString() {
 		return "Patient [pid=" + pid + ", username=" + username + ", password=" + password + ", age=" + age
-				+ ", height=" + height + ", weight=" + weight + ", bloodType=" + bloodType + "]";
+				+ ", height=" + height + ", weight=" + weight + ", bloodType=" + bloodType + ", appointments="
+				+ appointments + "]";
 	}
 
 }
