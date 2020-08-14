@@ -39,6 +39,7 @@
 				</exclusion>
 			</exclusions>
 		</dependency>
+
 		<dependency>
 		    <groupId>org.aspectj</groupId>
 		    <artifactId>aspectjweaver</artifactId>
@@ -56,6 +57,7 @@
 		    <artifactId>mariadb-java-client</artifactId>
 		    <version>2.6.1</version>
 		</dependency>
+
 	</dependencies>
 
 	<build>
@@ -66,5 +68,7 @@
 			</plugin>
 		</plugins>
 	</build>
+	
+	
 
 </project>
