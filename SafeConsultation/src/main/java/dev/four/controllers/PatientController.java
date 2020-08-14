@@ -19,8 +19,8 @@ import dev.four.services.PatientService;
 @RestController
 public class PatientController {
 	
-	@Autowired
-	PatientService pserv;
+	//@Autowired
+	//PatientService pserv;
 	
 	@RequestMapping(value = "/patients", method = RequestMethod.POST)
 	public Patient createPatient(@RequestBody Patient patient) {

@@ -20,8 +20,8 @@ import dev.four.services.DoctorService;
 @RestController
 public class DoctorController {
 	
-	@Autowired
-	DoctorService dserv;
+	//@Autowired
+	//DoctorService dserv;
 	
 	@RequestMapping(value = "/doctors", method = RequestMethod.POST)
 	public Doctor createDoctor(@RequestBody Doctor doctor) {

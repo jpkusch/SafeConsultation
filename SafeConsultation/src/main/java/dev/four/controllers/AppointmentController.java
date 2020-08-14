@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import dev.four.entities.Appointment;
 import dev.four.services.AppointmentService;
+import dev.four.services.AppointmentServiceImpl;
 
 
 @Component
@@ -19,20 +20,21 @@ import dev.four.services.AppointmentService;
 public class AppointmentController {
 	
 	@Autowired
-	private AppointmentService aserv;
+	AppointmentService aserv;
+	
 	
 	@RequestMapping(value = "/appointments", method = RequestMethod.POST)
 	public Appointment createAppointment(@RequestBody Appointment appointment) {
-		return null;
+		return this.aserv.createAppointment(appointment);
 	}
 	
 	@RequestMapping(value = "/appointments/{id}", method = RequestMethod.GET)
 	public Appointment getAppointmentById(@PathVariable int id) {
-		return null;
+		return this.aserv.getAppointmentById(id);
 	}
 
 	@RequestMapping(value = "/appointments", method = RequestMethod.PUT)
 	public Appointment updateAppointment(@RequestBody Appointment appointment) {
-		return null;
+		return this.aserv.updateAppointment(appointment);
 	}
 }
