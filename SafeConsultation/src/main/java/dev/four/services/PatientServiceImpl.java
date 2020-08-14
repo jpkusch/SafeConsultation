@@ -1,5 +1,7 @@
 package dev.four.services;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
@@ -33,8 +35,9 @@ public class PatientServiceImpl implements PatientService{
 
 	@Override
 	public Patient logIn(LoginDTO loginInfo) {
-		Patient patient = prep.findByUsername(loginInfo.getUsername());
-		if(patient != null) {
+		List<Patient> patients = prep.findByUsername(loginInfo.getUsername());
+		if (patients != null) {
+			Patient patient = prep.findByUsername(loginInfo.getUsername()).get(0);
 			// if returned patient's login info matches entered login info return patient
 			if(patient.getUsername().equals(loginInfo.getUsername()) && patient.getPassword().equals(loginInfo.getPassword())) {
 				return patient;

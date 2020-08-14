@@ -48,7 +48,7 @@ class AppointmentRepoTests {
 		Doctor doctor = new Doctor(0, "drMario", "HereWeGo!", "Pediatrician", drAppointments);
 		docrep.save(doctor);
 		
-		Patient patient = new Patient(0, "princessPeach", "OkeyDokey", 23, 5, 105, 'O');
+		Patient patient = new Patient(0, "princessPeach", "OkeyDokey", 23, 5, 105, "O");
 		patrep.save(patient);
 		
 		Appointment appointment = new Appointment(0, "nose running, coughing, heavy breathing & fever", "reserved", LocalDateTime.now(), "", "", "zoom.com", doctor, patient);
