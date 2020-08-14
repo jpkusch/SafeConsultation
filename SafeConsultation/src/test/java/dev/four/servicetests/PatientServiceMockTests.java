@@ -13,7 +13,6 @@ import dev.four.dtos.LoginDTO;
 import dev.four.entities.Patient;
 import dev.four.repositories.PatientRepository;
 import dev.four.services.PatientService;
-import java.util.Optional;
 
 @SpringBootTest(classes = dev.four.app.SafeConsultationApplication.class)
 public class PatientServiceMockTests {
