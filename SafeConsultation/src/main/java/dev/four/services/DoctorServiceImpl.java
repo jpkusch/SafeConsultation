@@ -44,9 +44,12 @@ public class DoctorServiceImpl implements DoctorService {
 
 	@Override
 	public Doctor logIn(LoginDTO loginInfo) {
-		Doctor doctor = drepo.findByUsername(loginInfo.getUsername());
-		if (doctor != null && doctor.getPassword().equals(loginInfo.getPassword())) {
-			return doctor;
+		List<Doctor> doctors = drepo.findByUsername(loginInfo.getUsername());
+		if (doctors != null && doctors.size() > 0) {
+			Doctor doctor = doctors.get(0);
+			if (doctor != null && doctor.getPassword().equals(loginInfo.getPassword())) {
+				return doctor;
+			}
 		}
 		return null;
 	}

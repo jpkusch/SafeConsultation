@@ -14,8 +14,4 @@ public interface PatientRepository extends CrudRepository<Patient, Integer>{
 		
 	List<Patient> findByUsername(String username);
 	
-
-
-	Patient findByUsername(String username);
-	
 }

@@ -20,17 +20,17 @@ import dev.four.services.DoctorService;
 @RestController
 public class DoctorController {
 	
-	@Autowired
-	DoctorService dserv;
+	//@Autowired
+	//DoctorService dserv;
 	
 	@RequestMapping(value = "/doctors", method = RequestMethod.POST)
 	public Doctor createDoctor(@RequestBody Doctor doctor) {
-		return this.dserv.createDoctor(doctor);
+		return null;
 	}
 	
 	@RequestMapping(value = "/doctors/{id}", method = RequestMethod.GET)
 	public Doctor getDoctorById(@PathVariable int id) {
-		return this.dserv.getDoctorById(id);
+		return null;
 	}
 	
 	@RequestMapping(value = "/doctors/{id}/appointments", method = RequestMethod.GET)
@@ -42,23 +42,22 @@ public class DoctorController {
 	
 	@RequestMapping(value = "/doctors", method = RequestMethod.GET)
 	public List<Doctor> getAllDoctors(){
-		return this.dserv.getAllDoctors();
+		return null;
 	}
 	
 	@RequestMapping(value = "/doctors/{id}/patients", method = RequestMethod.GET)
 	public List<Patient> getAllPatientsByDoctor(@PathVariable int id) {
-		Doctor doctor = dserv.getDoctorById(id);
-		return this.dserv.getAllPatientsByDoctor(doctor);
+		return null;
 	}
 	
 	@RequestMapping(value = "/doctors", method = RequestMethod.PUT)
 	public Doctor updateDoctor(@RequestBody Doctor doctor) {
-		return this.dserv.updateDoctor(doctor);
+		return null;
 	}
 	
 	@RequestMapping(value = "/doctors/login", method = RequestMethod.POST)
 	public Doctor logInDoctor(@RequestBody LoginDTO ldto) {
-		return this.dserv.logIn(ldto);
+		return null;
 	}
 
 }
