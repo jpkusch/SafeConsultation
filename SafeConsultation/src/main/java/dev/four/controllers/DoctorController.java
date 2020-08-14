@@ -33,10 +33,12 @@ public class DoctorController {
 		return this.dserv.getDoctorById(id);
 	}
 	
-//	@RequestMapping(value = "/doctors/{id}/appointments", method = RequestMethod.GET)
-//	public List<Appointment> getAppointmentsByDoctor(@PathVariable int id) {
-//		return null;
-//	}
+	@RequestMapping(value = "/doctors/{id}/appointments", method = RequestMethod.GET)
+	public List<Appointment> getAppointmentsByDoctor(@PathVariable int id) {
+		Doctor doctor = this.dserv.getDoctorById(id);
+		List<Appointment> appointmentsByDr = doctor.getAppointments();
+		return appointmentsByDr;
+	}
 	
 	@RequestMapping(value = "/doctors", method = RequestMethod.GET)
 	public List<Doctor> getAllDoctors(){

@@ -13,7 +13,7 @@ import dev.four.services.DoctorService;
 
 @AutoConfigureMockMvc
 @SpringBootTest(classes = dev.four.app.SafeConsultationApplication.class)
-class DoctorServiceTests {
+class DoctorControllerMockTests {
 	
 	@MockBean
 	DoctorService dserv;
