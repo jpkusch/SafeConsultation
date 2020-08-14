@@ -22,7 +22,6 @@ public class AppointmentController {
 	@Autowired
 	AppointmentService aserv;
 	
-	
 	@RequestMapping(value = "/appointments", method = RequestMethod.POST)
 	public Appointment createAppointment(@RequestBody Appointment appointment) {
 		return this.aserv.createAppointment(appointment);
@@ -38,3 +37,4 @@ public class AppointmentController {
 		return this.aserv.updateAppointment(appointment);
 	}
 }
+

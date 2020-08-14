@@ -91,8 +91,7 @@ public class Doctor {
 
 	@Override
 	public String toString() {
-		return "Doctor [did=" + did + ", username=" + username + ", password=" + password + ", specialty=" + specialty
-				+ ", appointments=" + appointments + "]";
+		return "Doctor [did=" + did + ", username=" + username + ", password=" + password + ", specialty=" + specialty;
 	}
 
 }

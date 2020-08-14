@@ -11,11 +11,11 @@ public interface DoctorService {
 	Doctor createDoctor(Doctor doctor);
 	
 	Doctor getDoctorById(int id);
-	Doctor getAllDoctors();
+	List<Doctor> getAllDoctors();
 	
 	Doctor updateDoctor(Doctor doctor);
 	
-	boolean logIn(LoginDTO loginInfo);
+	Doctor logIn(LoginDTO loginInfo);
 	List<Patient> getAllPatientsByDoctor(Doctor doctor);
 
 }
