@@ -26,6 +26,8 @@ hs_err_pid*
 *.settings
 *.prefs
 /SafeConsultation/target
+/SafeConsultation_Maven
+/SafeConsultation/HELP.md
 *.classpath
 *.project
 *.properties
