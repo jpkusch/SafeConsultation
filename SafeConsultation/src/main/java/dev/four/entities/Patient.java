@@ -41,7 +41,7 @@ public class Patient {
 	private String bloodType;
 	
 	@OneToMany(mappedBy = "patient", cascade = CascadeType.ALL)
-	@JsonManagedReference
+	@JsonManagedReference(value="patientParent")
 	private List<Appointment> appointments;
 	
 	public Patient() {

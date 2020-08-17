@@ -79,7 +79,7 @@ class AppointmentControllerTests {
 	
 	void getAppointmentById() throws Exception {
 		Doctor doctor = new Doctor(1, "Dr. Mario", "Mariopass", "Cardiologist", new ArrayList<Appointment>());
-		Patient patient = new Patient(2, "John", "Johnpass", 30, 5.6, 170.1, 'A');
+		Patient patient = new Patient(2, "John", "Johnpass", 30, 5.6, 170.1, "A");
 		LocalDateTime date = LocalDateTime.now();
 		//Appointment appointment = new Appointment(1, "cough", "submit", date, "Not diagnosed", "Nothing", "link", doctor, patient);
 		

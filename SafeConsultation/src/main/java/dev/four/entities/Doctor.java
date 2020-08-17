@@ -32,7 +32,7 @@ public class Doctor {
 	private String specialty;
 	
 	@OneToMany(mappedBy = "doctor", cascade = CascadeType.ALL)
-	@JsonManagedReference
+	@JsonManagedReference(value="doctorParent")
 	private List<Appointment> appointments;
 
 	public Doctor() {
