@@ -1,19 +1,19 @@
 import { Appointment } from '../models/Appointment';
 
 export class Doctor {
-  id: number;
+  did: number;
   username: string;
   password: string;
   specialty: string;
   appointments: Appointment[];
 
-  constructor(id: number,
+  constructor(did: number,
               username: string,
               password: string,
               specialty: string,
               appointments: Appointment[]) {
 
-      this.id = id;
+      this.did = did;
       this.username = username;
       this.password = password;
       this.specialty = specialty;
