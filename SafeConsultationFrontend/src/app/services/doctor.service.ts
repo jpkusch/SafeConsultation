@@ -17,8 +17,8 @@ export class DoctorService {
     return doctor;
   }
 
-  async getDoctorById(id: number): Promise<Doctor> {
-    const url: string = `http://localhost:8080/doctors/${id}`;
+  async getDoctorById(did: number): Promise<Doctor> {
+    const url: string = `http://localhost:8080/doctors/${did}`;
     const doctor: Doctor = await this.httpClient.get<Doctor>(url).toPromise();
     return doctor;
   }
@@ -35,14 +35,14 @@ export class DoctorService {
     return doctor;
   }
 
-  async getPatientsByDoctor(id: number): Promise<Patient[]> {
-    const url: string = `http://localhost:8080/doctors/${id}/patients`;
+  async getPatientsByDoctor(did: number): Promise<Patient[]> {
+    const url: string = `http://localhost:8080/doctors/${did}/patients`;
     const patients: Patient[] = await this.httpClient.get<Patient[]>(url).toPromise();
     return patients;
   }
 
-  async getAppointmentsByDoctor(id: number): Promise<Appointment[]> {
-    const url: string = `http://localhost:8080/doctors/${id}/appointments`;
+  async getAppointmentsByDoctor(did: number): Promise<Appointment[]> {
+    const url: string = `http://localhost:8080/doctors/${did}/appointments`;
     const appointments: Appointment[] = await this.httpClient.get<Appointment[]>(url).toPromise();
     return appointments;
   }
