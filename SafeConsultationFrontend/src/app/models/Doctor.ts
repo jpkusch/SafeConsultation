@@ -20,5 +20,4 @@ export class Doctor {
       this.appointments = appointments;
 
     }
-
 }
