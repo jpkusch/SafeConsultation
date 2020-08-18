@@ -6,7 +6,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
-
+import { MatRadioModule } from '@angular/material/radio'
+import { MatFormFieldModule } from '@angular/material/form-field'
+ 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginPageComponent } from './components/login-page/login-page.component';
@@ -17,6 +19,8 @@ import { AppointmentsTabComponent } from './components/appointments-tab/appointm
 import { AccountTabComponent } from './components/account-tab/account-tab.component';
 import { DoctorTabComponent } from './components/doctor-tab/doctor-tab.component';
 import { PatientTabComponent } from './components/patient-tab/patient-tab.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { fromEventPattern } from 'rxjs';
 
 @NgModule({
   declarations: [
@@ -34,7 +38,10 @@ import { PatientTabComponent } from './components/patient-tab/patient-tab.compon
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule,
+    MatRadioModule,
+    MatFormFieldModule
   ],
   providers: [AppointmentService, DoctorService, PatientService, LoginService],
   bootstrap: [AppComponent]
