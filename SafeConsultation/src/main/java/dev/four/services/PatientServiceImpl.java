@@ -36,7 +36,7 @@ public class PatientServiceImpl implements PatientService{
 	@Override
 	public Patient logIn(LoginDTO loginInfo) {
 		List<Patient> patients = prep.findByUsername(loginInfo.getUsername());
-		if (patients != null) {
+		if (patients != null && patients.size() > 0) {
 			Patient patient = prep.findByUsername(loginInfo.getUsername()).get(0);
 			// if returned patient's login info matches entered login info return patient
 			if(patient.getUsername().equals(loginInfo.getUsername()) && patient.getPassword().equals(loginInfo.getPassword())) {
