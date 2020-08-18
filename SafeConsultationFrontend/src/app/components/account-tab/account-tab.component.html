@@ -1,1 +1,10 @@
-<p>account-tab works!</p>
+<div *ngIf="doctor" >
+  <span>Specialty: </span><input type="text" [(ngModel)]="doctor.specialty"/>
+</div>
+
+<div *ngIf="patient" >
+  <span>Height: </span><input type="number" [(ngModel)]="patient.height"/>
+  <span>Weight: </span><input type="number" [(ngModel)]="patient.weight"/>
+  <span>Blood Type: </span><input type="text" [(ngModel)]="patient.bloodType"/>
+  <span>Age: </span><input type="number" [(ngModel)]="patient.age"/>
+</div>

@@ -1,1 +1,9 @@
-<p>patient-tab works!</p>
+<table>
+  <tr *ngFor="let patient of patients">
+    <td>Patient: {{patient.username}}</td>
+    <td>Age: {{patient.age}}</td>
+    <td>Height: {{patient.height}}</td>
+    <td>Weight: {{patient.weight}}</td>
+    <td>Blood Type: {{patient.bloodType}}</td>
+  </tr>
+</table>
