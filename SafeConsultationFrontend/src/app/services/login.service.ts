@@ -15,22 +15,22 @@ export class LoginService {
   doctorUser:Doctor = null;
 
   async patientLogIn(login:Login){
-    const patient:Patient = await this.http.post<Patient>(`http://localhost:8080/patients/login`, login).toPromise();
+    const patient:Patient = await this.http.post<Patient>(`http://ec2-3-131-82-174.us-east-2.compute.amazonaws.com:8080/patients/login`, login).toPromise();
     this.patientUser = patient;
   }
 
   async patientSignUp(patient:Patient){
-    patient = await this.http.post<Patient>(`http://localhost:8080/patients`, patient).toPromise();
+    patient = await this.http.post<Patient>(`http://ec2-3-131-82-174.us-east-2.compute.amazonaws.com:8080/patients`, patient).toPromise();
     this.patientUser = patient;
   }
 
   async doctorLogIn(login:Login){
-    const doctor:Doctor = await this.http.post<Doctor>(`http://localhost:8080/doctors/login`,login).toPromise();
+    const doctor:Doctor = await this.http.post<Doctor>(`http://ec2-3-131-82-174.us-east-2.compute.amazonaws.com:8080/doctors/login`,login).toPromise();
     this.doctorUser = doctor;
   }
 
   async doctorSignUp(doctor:Doctor){
-    doctor = await this.http.post<Doctor>(`http://localhost:8080/doctors/login`,doctor).toPromise();
+    doctor = await this.http.post<Doctor>(`http://ec2-3-131-82-174.us-east-2.compute.amazonaws.com:8080/doctors/login`,doctor).toPromise();
     this.doctorUser = doctor;
   }
 }
