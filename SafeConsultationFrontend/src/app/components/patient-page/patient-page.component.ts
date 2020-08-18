@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {Patient} from '../../models/Patient';
+import {PatientService} from '../../services/patient.service';
 
 @Component({
   selector: 'app-patient-page',
@@ -7,7 +9,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PatientPageComponent implements OnInit {
 
-  constructor() { }
+  constructor(private patientService:PatientService) { }
+
+  patient:Patient;
 
   ngOnInit(): void {
   }
