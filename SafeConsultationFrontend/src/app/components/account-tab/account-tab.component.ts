@@ -1,3 +1,5 @@
+import { PatientService } from './../../services/patient.service';
+import { DoctorService } from './../../services/doctor.service';
 import { LoginService } from './../../services/login.service';
 import { Component, OnInit } from '@angular/core';
 import { Patient } from 'src/app/models/Patient';
@@ -14,7 +16,7 @@ export class AccountTabComponent implements OnInit {
   patient: Patient = null;
   isLoaded: boolean = false;
 
-  constructor(private loginService: LoginService) { }
+  constructor(private loginService: LoginService, private doctorService: DoctorService, private patientService: PatientService) { }
 
   ngOnInit(): void {
     this.docPat();
@@ -24,6 +26,16 @@ export class AccountTabComponent implements OnInit {
   docPat(): void {
     this.doctor = this.loginService.doctorUser;
     this.patient = this.loginService.patientUser;
+  }
+
+  updateUser(): void {
+    if (this.doctor) {
+      this.doctorService.updateDoctor(this.doctor);
+      this.loginService.doctorUser = this.doctor;
+    } else if (this.patient) {
+      this.patientService.updatePatient(this.patient);
+      this.loginService.patientUser = this.patient;
+    }
   }
 
 }
