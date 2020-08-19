@@ -10,7 +10,8 @@ import { MatRadioModule } from '@angular/material/radio'
 import { MatFormFieldModule } from '@angular/material/form-field'
 import { MatInputModule } from '@angular/material/input'
 import { MatButtonModule } from '@angular/material/button'
- 
+import {MatTableModule} from '@angular/material/table';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginPageComponent } from './components/login-page/login-page.component';
@@ -23,6 +24,9 @@ import { DoctorTabComponent } from './components/doctor-tab/doctor-tab.component
 import { PatientTabComponent } from './components/patient-tab/patient-tab.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { fromEventPattern } from 'rxjs';
+import { ViewMoreComponent } from './components/view-more/view-more.component';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
 
 @NgModule({
   declarations: [
@@ -34,7 +38,8 @@ import { fromEventPattern } from 'rxjs';
     AppointmentsTabComponent,
     AccountTabComponent,
     DoctorTabComponent,
-    PatientTabComponent
+    PatientTabComponent,
+    ViewMoreComponent
   ],
   imports: [
     BrowserModule,
@@ -44,10 +49,13 @@ import { fromEventPattern } from 'rxjs';
     BrowserAnimationsModule,
     MatRadioModule,
     MatFormFieldModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
     MatInputModule,
-    MatButtonModule
+    MatButtonModule,
+    MatTableModule
   ],
-  providers: [AppointmentService, DoctorService, PatientService, LoginService],
+  providers: [AppointmentService, DoctorService, PatientService, LoginService, MatDatepickerModule],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

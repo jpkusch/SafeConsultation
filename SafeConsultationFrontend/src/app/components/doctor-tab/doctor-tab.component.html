@@ -1,1 +1,15 @@
-<p>doctor-tab works!</p>
+<div *ngIf="showAllDrs">
+    <h2>Browse Doctors</h2>
+<table *ngIf="alldoctors.length != 0">
+    <thead><th>Doctor's Name</th><th>Specialty</th><th></th></thead>
+    <tr *ngFor ="let d of alldoctors"><td>{{d.username}}</td><td>{{d.specialty}}</td><td><button (click)="goToMakeAppointment(d.did)">Make Appointment</button></td></tr>
+</table>
+</div>
+<div *ngIf="makeApptTab">
+    <h2>Make an Appointment</h2>
+    <textarea cols="30" rows="10" [(ngModel)] ="enteredSymptoms">Symptoms</textarea><br>
+    <input matInput [matDatepicker]="picker" [(ngModel)]="selectedDateTime">
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+    <p><button (click)="makeAppointment(bookedAppointment)">Schedule Appointment</button></p>
+</div>

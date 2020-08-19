@@ -65,5 +65,8 @@ public class DoctorController {
 	public Doctor logInDoctor(@RequestBody LoginDTO ldto) {
 		return this.dserv.logIn(ldto);
 	}
+	
+	
+	
 
 }

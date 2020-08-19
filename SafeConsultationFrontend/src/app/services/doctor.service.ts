@@ -30,8 +30,6 @@ export class DoctorService {
   }
 
   async updateDoctor(doctorIn: Doctor): Promise<Doctor> {
-    const head = new HttpHeaders();
-    head.set('Content-Type', 'application/json');
     const url: string = 'http://localhost:8080/doctors';
     const doctor: Doctor = await this.httpClient.put<Doctor>(url, doctorIn).toPromise();
     return doctor;

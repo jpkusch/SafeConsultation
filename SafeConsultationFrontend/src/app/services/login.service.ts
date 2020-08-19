@@ -3,13 +3,15 @@ import { HttpClient } from '@angular/common/http';
 import { Login } from '../models/Login';
 import { Patient } from '../models/Patient';
 import { Doctor } from '../models/Doctor';
+import { CookieService} from 'ngx-cookie-service';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class LoginService {
-  patientUser:Patient;
-  doctorUser:Doctor;
+  patientUser:Patient = null;
+  doctorUser:Doctor = null;
 
   constructor(private http:HttpClient) { 
   }
