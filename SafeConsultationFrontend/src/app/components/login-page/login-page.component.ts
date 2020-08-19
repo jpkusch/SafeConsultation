@@ -18,7 +18,6 @@ export class LoginPageComponent implements OnInit {
   }
 
   showSignUp:boolean = false;
-  isDoctor:boolean = false;
   userType:string = "patient";
 
   username:string;
@@ -31,30 +30,46 @@ export class LoginPageComponent implements OnInit {
   bloodType:string;
 
   //doctor info
-  specialy:string;
+  specialty:string;
 
   async patientLogIn(){
-    let login:Login = new Login(this.username, this.password);
-    await this.loginService.patientLogIn(login);
-    this.router.navigateByUrl('/patient');
+    if(this.username && this.password){
+      let login:Login = new Login(this.username, this.password);
+      await this.loginService.patientLogIn(login);
+      if(this.loginService.patientUser != null){
+        this.router.navigateByUrl('/patient');
+      }
+    }
   }
 
   async doctorLogIn(){
-    let login:Login = new Login(this.username, this.password);
-    await this.loginService.doctorLogIn(login);
-    this.router.navigateByUrl('/doctor');
+    if(this.username && this.password){
+      let login:Login = new Login(this.username, this.password);
+      await this.loginService.doctorLogIn(login);
+      if(this.loginService.doctorUser != null){
+        this.router.navigateByUrl('/doctor');
+      }
+    }
   }
 
   async patientSignUp(){
-    let patient:Patient = new Patient(0, this.username, this.password, this.age, this.weight, this.height, this.bloodType, []);
-    this.loginService.patientSignUp(patient);
-    this.router.navigateByUrl('/patient');
+    if(this.username && this.password && this.age){
+      let patient:Patient = new Patient(0, this.username, this.password, this.age, this.weight, this.height, this.bloodType, []);
+      await this.loginService.patientSignUp(patient);
+      if(this.loginService.patientUser != null){
+        this.router.navigateByUrl('/patient');
+      }
+    }
   }
 
   async doctorSignUp(){
-    let doctor:Doctor = new Doctor(0, this.username, this.password, this.specialy, []);
-    this.loginService.doctorSignUp(doctor);
-    this.router.navigateByUrl('/doctor');
+    if(this.username && this.password && this.specialty){
+      let doctor:Doctor = new Doctor(0, this.username, this.password, this.specialty, []);
+      await this.loginService.doctorSignUp(doctor);
+      if(this.loginService.doctorUser != null){
+        this.router.navigateByUrl('/doctor');
+      }
+    }
   }
 
   manageSignUp(){

@@ -9,8 +9,6 @@ import { Doctor } from 'src/app/models/Doctor';
   styleUrls: ['./doctor-page.component.css']
 })
 export class DoctorPageComponent implements OnInit {
-
-  loggedInDoctor: Doctor = null;
   appTabOpen: boolean = true;
   patTabOpen: boolean = false;
   accTabOpen: boolean = false;
@@ -19,7 +17,6 @@ export class DoctorPageComponent implements OnInit {
   constructor(private doctorService: DoctorService, private loginService: LoginService) { }
 
   ngOnInit(): void {
-    // use login service to get loggedInDoctor
   }
 
   clickTab(tabName: string): void {

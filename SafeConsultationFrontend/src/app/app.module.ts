@@ -8,6 +8,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { MatRadioModule } from '@angular/material/radio'
 import { MatFormFieldModule } from '@angular/material/form-field'
+import { MatInputModule } from '@angular/material/input'
+import { MatButtonModule } from '@angular/material/button'
+import {MatTableModule} from '@angular/material/table';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -22,6 +25,8 @@ import { PatientTabComponent } from './components/patient-tab/patient-tab.compon
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { fromEventPattern } from 'rxjs';
 import { ViewMoreComponent } from './components/view-more/view-more.component';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
 
 @NgModule({
   declarations: [
@@ -43,9 +48,14 @@ import { ViewMoreComponent } from './components/view-more/view-more.component';
     FormsModule,
     BrowserAnimationsModule,
     MatRadioModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatInputModule,
+    MatButtonModule,
+    MatTableModule
   ],
-  providers: [AppointmentService, DoctorService, PatientService, LoginService],
+  providers: [AppointmentService, DoctorService, PatientService, LoginService, MatDatepickerModule],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
