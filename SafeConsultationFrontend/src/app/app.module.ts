@@ -8,6 +8,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { MatRadioModule } from '@angular/material/radio'
 import { MatFormFieldModule } from '@angular/material/form-field'
+import { MatInputModule } from '@angular/material/input'
+import { MatButtonModule } from '@angular/material/button'
  
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -41,7 +43,9 @@ import { fromEventPattern } from 'rxjs';
     FormsModule,
     BrowserAnimationsModule,
     MatRadioModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    MatInputModule,
+    MatButtonModule
   ],
   providers: [AppointmentService, DoctorService, PatientService, LoginService],
   bootstrap: [AppComponent]
