@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Patient} from '../../models/Patient';
 import {PatientService} from '../../services/patient.service';
+import {LoginService} from '../../services/login.service'
 
 @Component({
   selector: 'app-patient-page',
@@ -9,11 +10,68 @@ import {PatientService} from '../../services/patient.service';
 })
 export class PatientPageComponent implements OnInit {
 
-  constructor(private patientService:PatientService) { }
+  constructor(private patientService:PatientService, private loginService:LoginService) { }
 
-  patient:Patient;
+  browseDoctors:Boolean = false;
+  accountInfo:Boolean = true;
+  appointments:Boolean = false;
+  updateInfo:Boolean = false;
 
-  ngOnInit(): void {
+  enteredHeight:number;
+  enteredWeight:number;
+  enteredBloodType:string;
+  enteredAge:number;
+
+  patient:Patient = this.loginService.patientUser;
+  patientIn:Patient;
+
+  async ngOnInit():Promise<void> {
+
+    this.patient = await this.loginService.patientUser;
+
+  }
+
+  goToAccountInfo(){
+    this.accountInfo = true;
+    this.browseDoctors = false;
+    this.appointments = false;
+    this.updateInfo = false;
+  }
+
+  goToBrowseDoctors(){
+    this.browseDoctors = true;
+    this.accountInfo = false;
+    this.appointments = false;
+    this.updateInfo = false;
+  }
+
+  goToAppointments(){
+    this.appointments = true;
+    this.accountInfo = false;
+    this.browseDoctors = false;
+    this.updateInfo = false;
+  }
+
+  goToUpdateInfo(){
+    this.updateInfo = true;
+    this.accountInfo = false;
+    this.appointments = false;
+    this.browseDoctors = false;
+  } 
+
+  async getLoggedPatient(){
+
+
+  }
+
+  async updatePatient(patientIn:Patient):Promise<void>{
+
+    patientIn.height = this.enteredHeight;
+    patientIn.weight = this.enteredWeight;
+    patientIn.bloodType = this.enteredBloodType;
+    patientIn.age = this.enteredAge;
+
+    this.patient = await this.patientService.updatePatient(patientIn);
   }
 
 }
