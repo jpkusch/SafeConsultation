@@ -1,4 +1,10 @@
-mat-form-field.mat-form-field{
+mat-form-field{
     font-size: 16px;
     border-left: 16px;
+}
+div{
+    text-align: center;
+}
+mat-radio-button{
+    margin: 0 6px 0 6px;
 }

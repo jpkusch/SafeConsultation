@@ -24,9 +24,12 @@ public class PatientServiceImpl implements PatientService{
 	
 	@Override
 	public Patient createPatient(Patient patient) {
-		return prep.save(patient);
+		try {
+			return prep.save(patient);
+		} catch(Exception e) {
+			return null;
+		}
 	}
-
 	@Override
 	public Patient getPatientById(int id) {
 		Patient patient = prep.findById(id).orElse(null);
