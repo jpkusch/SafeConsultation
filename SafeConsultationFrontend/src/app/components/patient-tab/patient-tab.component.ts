@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import {Patient} from '../../models/Patient';
 import {DoctorService} from '../../services/doctor.service';
 import { Doctor } from 'src/app/models/Doctor';
+import { MatTableDataSource } from '@angular/material/table';
 
 @Component({
   selector: 'app-patient-tab',
@@ -15,14 +16,18 @@ export class PatientTabComponent implements OnInit {
 
   doctor: Doctor = null;
   patients: Array<Patient> = [];
+  dataSource = null;
+  displayedColumns: string[] = [];
 
-  ngOnInit(): void {
-    this.initializeDoctor();
-    this.initializePatients();
+  async ngOnInit(): Promise<void> {
+    await this.initializeDoctor();
+    await this.initializePatients();
   }
 
   async initializePatients(): Promise<void> {
     this.patients = await this.doctorService.getPatientsByDoctor(this.doctor.did);
+    this.dataSource = new MatTableDataSource<Patient>(this.patients);
+    this.displayedColumns = ['patient', 'age', 'height', 'weight', 'bloodType'];
   }
 
   initializeDoctor(): void {

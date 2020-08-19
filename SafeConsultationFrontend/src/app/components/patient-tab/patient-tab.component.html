@@ -1,9 +1,31 @@
-<table>
-  <tr *ngFor="let patient of patients">
-    <td>Patient: {{patient.username}}</td>
-    <td>Age: {{patient.age}}</td>
-    <td>Height: {{patient.height}}</td>
-    <td>Weight: {{patient.weight}}</td>
-    <td>Blood Type: {{patient.bloodType}}</td>
-  </tr>
-</table>
+<div *ngIf="dataSource">
+  <table mat-table [dataSource]="dataSource">
+    <ng-container matColumnDef="patient">
+      <th mat-header-cell *matHeaderCellDef> Patient </th>
+      <td mat-cell *matCellDef="let patient">{{patient.username}}</td>
+
+      <ng-container matColumnDef="age">
+        <th mat-header-cell *matHeaderCellDef> Age </th>
+        <td mat-cell *matCellDef="let patient">{{patient.age}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="height">
+        <th mat-header-cell *matHeaderCellDef> Height </th>
+        <td mat-cell *matCellDef="let patient">{{patient.height}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="weight">
+        <th mat-header-cell *matHeaderCellDef> Weight </th>
+        <td mat-cell *matCellDef="let patient">{{patient.weight}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="bloodType">
+        <th mat-header-cell *matHeaderCellDef> Blood Type </th>
+        <td mat-cell *matCellDef="let patient">{{patient.bloodType}}</td>
+      </ng-container>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+</div>
