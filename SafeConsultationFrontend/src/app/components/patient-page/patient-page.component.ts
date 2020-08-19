@@ -9,7 +9,9 @@ import {LoginService} from '../../services/login.service'
   styleUrls: ['./patient-page.component.css']
 })
 export class PatientPageComponent implements OnInit {
-
+  appTabOpen: boolean = true;
+  patTabOpen: boolean = false;
+  accTabOpen: boolean = false;
   constructor(private patientService:PatientService, private loginService:LoginService) { }
 
   browseDoctors:Boolean = false;
@@ -74,4 +76,17 @@ export class PatientPageComponent implements OnInit {
     this.patient = await this.patientService.updatePatient(patientIn);
   }
 
+  clickTab(tabName: string): void {
+    this.appTabOpen = false;
+    this.patTabOpen = false;
+    this.accTabOpen = false;
+
+    if (tabName === 'Appointments') {
+      this.appTabOpen = true;
+    } else if (tabName === 'Patients') {
+      this.patTabOpen = true;
+    } else if (tabName === 'Account') {
+      this.accTabOpen = true;
+    }
+  }
 }

@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import dev.four.dtos.LoginDTO;
 import dev.four.entities.Appointment;
+import dev.four.entities.Doctor;
 import dev.four.entities.Patient;
 import dev.four.services.PatientService;
 
@@ -49,6 +50,12 @@ public class PatientController {
 	@RequestMapping(value = "/patients/login", method = RequestMethod.POST)
 	public Patient logInPatient(@RequestBody LoginDTO ldto) {
 		return pserv.logIn(ldto);
+	}
+	
+	@RequestMapping(value = "/patients/{id}/doctors", method = RequestMethod.GET)
+	public List<Doctor> getAllDoctorbyPatients(@PathVariable int id) {
+		Patient patient = pserv.getPatientById(id);
+		return this.pserv.getAllDoctorByPatient(patient);
 	}
 
 }

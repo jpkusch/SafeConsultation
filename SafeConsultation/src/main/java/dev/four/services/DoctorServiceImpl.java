@@ -53,6 +53,7 @@ public class DoctorServiceImpl implements DoctorService {
 		}
 		return null;
 	}
+	
 
 	@Override
 	public List<Patient> getAllPatientsByDoctor(Doctor doctor) {
