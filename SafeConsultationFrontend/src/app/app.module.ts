@@ -21,6 +21,8 @@ import { DoctorTabComponent } from './components/doctor-tab/doctor-tab.component
 import { PatientTabComponent } from './components/patient-tab/patient-tab.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { fromEventPattern } from 'rxjs';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
 
 @NgModule({
   declarations: [
@@ -41,9 +43,12 @@ import { fromEventPattern } from 'rxjs';
     FormsModule,
     BrowserAnimationsModule,
     MatRadioModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    
   ],
-  providers: [AppointmentService, DoctorService, PatientService, LoginService],
+  providers: [AppointmentService, DoctorService, PatientService, LoginService, MatDatepickerModule],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
