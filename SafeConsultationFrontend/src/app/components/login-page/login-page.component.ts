@@ -39,7 +39,9 @@ export class LoginPageComponent implements OnInit {
       if(this.loginService.patientUser != null){
         this.router.navigateByUrl('/patient');
       }
+      alert("Either the username or password is incorrect. Please try again.");
     }
+    alert("Please ensure the username and password fields are correctly fill out.")
   }
 
   async doctorLogIn(){
@@ -49,27 +51,33 @@ export class LoginPageComponent implements OnInit {
       if(this.loginService.doctorUser != null){
         this.router.navigateByUrl('/doctor');
       }
+      alert("Either the username or password is incorrect. Please try again.");
     }
+    alert("Please ensure the username and password fields are correctly fill out.")
   }
 
   async patientSignUp(){
-    if(this.username && this.password && this.age){
+    if((this.username && this.username.length >= 6) && (this.password && this.password.length >= 6) && (this.age && this.age >= 0)){
       let patient:Patient = new Patient(0, this.username, this.password, this.age, this.weight, this.height, this.bloodType, []);
       await this.loginService.patientSignUp(patient);
       if(this.loginService.patientUser != null){
         this.router.navigateByUrl('/patient');
       }
+      alert("Either the username or password is already taken. Please try again.");
     }
+    alert("Please ensure the username and password are at least 6 characters and the age is greater than 0.")
   }
 
   async doctorSignUp(){
-    if(this.username && this.password && this.specialty){
+    if((this.username && this.username.length >= 6) && (this.password && this.password.length >= 6) && (this.specialty && this.specialty.length >= 0)){
       let doctor:Doctor = new Doctor(0, this.username, this.password, this.specialty, []);
       await this.loginService.doctorSignUp(doctor);
       if(this.loginService.doctorUser != null){
         this.router.navigateByUrl('/doctor');
       }
+      alert("Either the username or password is already taken. Please try again.");
     }
+    alert("Please ensure the username and password are at least 6 characters and the specialty is at least 3 characters.")
   }
 
   manageSignUp(){

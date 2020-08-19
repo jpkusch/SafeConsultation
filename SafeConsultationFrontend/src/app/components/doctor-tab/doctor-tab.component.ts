@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
+ 
 @Component({
   selector: 'app-doctor-tab',
   templateUrl: './doctor-tab.component.html',
@@ -11,5 +12,7 @@ export class DoctorTabComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
+
 
 }

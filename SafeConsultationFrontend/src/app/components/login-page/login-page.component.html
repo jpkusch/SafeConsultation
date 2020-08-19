@@ -1,3 +1,4 @@
+<div>
 <h1 *ngIf = "showSignUp">Signup Page</h1>
 <h1 *ngIf = "!showSignUp">Login Page</h1>
 
@@ -5,47 +6,50 @@
     <mat-radio-button matInput name="patient" value="patient">Patient</mat-radio-button>
     <mat-radio-button matInput name="doctor" value="doctor">Doctor</mat-radio-button>
 </mat-radio-group>
-
+</div>
 <div>
-    <mat-form-field appearance="standard">
-        <mat-label>Username</mat-label>
-        <input matInput placeholder="Username" [(ngModel)]="username" required>
+    <mat-form-field hintLabel="Min 6 characters:" appearance="standard">
+        <mat-label >Username</mat-label>
+        <input #userInput id = "usernameField" matInput placeholder="Username" [(ngModel)]="username" required minlength="6">
+        <mat-hint align="end">{{userInput.value?.length || 0}}/6</mat-hint>
         <mat-error>Username must have a value</mat-error>
     </mat-form-field>
     <br>
-    <mat-form-field appearance="standard">
+    <mat-form-field hintLabel="Min 6 characters:" appearance="standard">
         <mat-label>Password</mat-label>
-        <input matInput placeholder="Password" [(ngModel)]="password" required>
+        <input #passInput id = "passwordField" matInput placeholder="Password" [(ngModel)]="password" required minlength="6">
+        <mat-hint align="end">{{passInput.value?.length || 0}}/6</mat-hint>
         <mat-error>Password must have a value</mat-error>
     </mat-form-field>
 </div>
 <div *ngIf = "userType === 'doctor' && showSignUp">
-    <mat-form-field appearance="standard">
+    <mat-form-field hintLabel="Min 3 characters:" appearance="standard">
         <mat-label>Specialty</mat-label>
-        <input matInput placeholder="Specialty" [(ngModel)]="specialty" required>
-        <mat-error>Username must have a value</mat-error>
+        <input #specInput id = "specialtyField" matInput placeholder="Specialty" [(ngModel)]="specialty" required minlength="3">
+        <mat-hint align="end">{{specInput.value?.length || 0}}/3</mat-hint>
+        <mat-error>Specialty must have a value</mat-error>
     </mat-form-field>
 </div>
 <div *ngIf = "userType === 'patient' && showSignUp">
     <mat-form-field appearance="standard">
-        <mat-label>Age</mat-label>
-        <input type="number" matInput placeholder="Age" [(ngModel)]="age" required>
+        <mat-label>Age (years)</mat-label>
+        <input id = "ageField" type="number" matInput placeholder="Age" [(ngModel)]="age"required>
         <mat-error>Age must have a value</mat-error>
     </mat-form-field>
     <br>
     <mat-form-field appearance="standard">
-        <mat-label>Weight</mat-label>
-        <input type="number" matInput placeholder="Weight" [(ngModel)]="weight">
+        <mat-label>Weight (pounds)</mat-label>
+        <input id = "weightField" type="number" matInput placeholder="Weight" [(ngModel)]="weight">
     </mat-form-field>
     <br>
     <mat-form-field appearance="standard">
-        <mat-label>Height</mat-label>
-        <input type="number" matInput placeholder="Height" [(ngModel)]="height">
+        <mat-label>Height (inches)</mat-label>
+        <input id = "heightField" type="number" matInput placeholder="Height" [(ngModel)]="height">
     </mat-form-field>
     <br>
     <mat-form-field appearance="standard">
         <mat-label>Blood Type</mat-label>
-        <input type="text" matInput placeholder="Blood Type" [(ngModel)]="bloodType">
+        <input id = "bloodTypeField" type="text" matInput placeholder="Blood Type" [(ngModel)]="bloodType">
     </mat-form-field>
 </div>
 <div *ngIf = "showSignUp">

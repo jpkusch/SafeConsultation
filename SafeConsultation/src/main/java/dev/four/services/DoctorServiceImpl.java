@@ -24,9 +24,12 @@ public class DoctorServiceImpl implements DoctorService {
 
 	@Override
 	public Doctor createDoctor(Doctor doctor) {
-		return drepo.save(doctor);
+		try {
+			return drepo.save(doctor);
+		} catch (Exception e) {
+			return null;
+		}
 	}
-
 	@Override
 	public Doctor getDoctorById(int id) {
 		return drepo.findById(id).get();
