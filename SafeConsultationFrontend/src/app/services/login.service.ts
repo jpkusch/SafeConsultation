@@ -27,7 +27,7 @@ export class LoginService {
   }
 
   async doctorLogIn(login:Login){
-    const doctor:Doctor = await this.http.post<Doctor>(`http://localhost:8080/doctors/login`,login).toPromise();
+    const doctor:Doctor = await this.http.post<Doctor>(`http://localhost:8080/doctors/login`, login).toPromise();
     this.doctorUser = doctor;
     this.patientUser = null;
   }

@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Doctor } from '../models/Doctor';
 import { Appointment } from '../models/Appointment';
 import { Patient } from '../models/Patient';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +13,7 @@ export class DoctorService {
 
   async createDoctor(doctorIn: Doctor): Promise<Doctor> {
     const url: string = 'http://localhost:8080/doctors';
-    const doctor: Doctor = await this.httpClient.post<Doctor>(url, JSON.stringify(doctorIn)).toPromise();
+    const doctor: Doctor = await this.httpClient.post<Doctor>(url, doctorIn).toPromise();
     return doctor;
   }
 
@@ -30,8 +30,10 @@ export class DoctorService {
   }
 
   async updateDoctor(doctorIn: Doctor): Promise<Doctor> {
+    const head = new HttpHeaders();
+    head.set('Content-Type', 'application/json');
     const url: string = 'http://localhost:8080/doctors';
-    const doctor: Doctor = await this.httpClient.put<Doctor>(url, JSON.stringify(doctorIn)).toPromise();
+    const doctor: Doctor = await this.httpClient.put<Doctor>(url, doctorIn).toPromise();
     return doctor;
   }
 

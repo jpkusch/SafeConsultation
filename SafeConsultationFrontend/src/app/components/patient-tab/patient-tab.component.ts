@@ -1,6 +1,8 @@
+import { LoginService } from './../../services/login.service';
 import { Component, OnInit } from '@angular/core';
 import {Patient} from '../../models/Patient';
-import {PatientService} from '../../services/patient.service';
+import {DoctorService} from '../../services/doctor.service';
+import { Doctor } from 'src/app/models/Doctor';
 
 @Component({
   selector: 'app-patient-tab',
@@ -9,12 +11,22 @@ import {PatientService} from '../../services/patient.service';
 })
 export class PatientTabComponent implements OnInit {
 
-  constructor(private patientService:PatientService) { }
+  constructor(private doctorService: DoctorService, private loginService: LoginService) { }
 
-  patient:Patient;
-  patients:Array<Patient>;
+  doctor: Doctor = null;
+  patients: Array<Patient> = [];
 
   ngOnInit(): void {
+    this.initializeDoctor();
+    this.initializePatients();
+  }
+
+  async initializePatients(): Promise<void> {
+    this.patients = await this.doctorService.getPatientsByDoctor(this.doctor.did);
+  }
+
+  initializeDoctor(): void {
+    this.doctor = this.loginService.doctorUser;
   }
 
 }
