@@ -35,13 +35,13 @@ export class LoginPageComponent implements OnInit {
 
   async patientLogIn(){
     let login:Login = new Login(this.username, this.password);
-    this.loginService.patientLogIn(login);
+    await this.loginService.patientLogIn(login);
     this.router.navigateByUrl('/patient');
   }
 
   async doctorLogIn(){
     let login:Login = new Login(this.username, this.password);
-    this.loginService.doctorLogIn(login);
+    await this.loginService.doctorLogIn(login);
     this.router.navigateByUrl('/doctor');
   }
 

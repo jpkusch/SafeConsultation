@@ -1,1 +1,45 @@
-<p>appointments-tab works!</p>
+<table *ngIf="loginDoctor !== null">
+    <tr>
+        <th>ID</th>
+        <th>Patient</th>
+        <th>Status</th>
+        <th>Date</th>
+        <th>Time</th>
+        <th>More Info</th>
+    </tr>
+<tr *ngFor = "let app of appointments">
+        <td [(ngModel)]="app.pid" ngDefaultControl>{{app.aid}}</td>
+        <td>{{app.patient.username}}</td>
+        <td>{{app.status}}</td>
+        <td>{{app.aptTime | date:"MM/dd/yy"}}</td>
+        <td>{{app.aptTime | date:"h/mm a"}}</td>
+        <td><button (click)="clickBtn(app.aid)">More Info</button></td>       
+    </tr>
+</table>
+
+<table *ngIf="loginPatient !== null">
+    <tr>
+        <th>ID</th>
+        <th>Doctor</th>
+        <th>Status</th>
+        <th>Date</th>
+        <th>Time</th>
+        <th>More Info</th>
+    </tr>
+<tr *ngFor = "let app of appointments">
+        <td [(ngModel)]="app.pid" ngDefaultControl>{{app.aid}}</td>
+        <td>{{app.doctor.username}}</td>
+        <td>{{app.status}}</td>
+        <td>{{app.aptTime | date:"MM/dd/yy"}}</td>
+        <td>{{app.aptTime | date:"h/mm a"}}</td>
+        <td><button (click)="clickBtn(app.aid)">More Info</button></td>       
+    </tr>
+</table>
+
+
+
+
+
+
+
+

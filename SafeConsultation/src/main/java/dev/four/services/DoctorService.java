@@ -16,6 +16,7 @@ public interface DoctorService {
 	Doctor updateDoctor(Doctor doctor);
 	
 	Doctor logIn(LoginDTO loginInfo);
+
 	List<Patient> getAllPatientsByDoctor(Doctor doctor);
 
 }

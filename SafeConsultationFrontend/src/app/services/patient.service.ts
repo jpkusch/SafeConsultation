@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Patient } from '../models/Patient';
+import { Doctor } from '../models/Doctor';
 import { Appointment } from '../models/Appointment';
 import { Login } from '../models/Login'
 
@@ -39,5 +40,11 @@ export class PatientService {
 
     const patient:Patient = await this.http.post<Patient>("http://localhost:8080/patients/login", dto).toPromise();
     return patient;
+  }
+
+  async getDoctorByPatient(pid: number): Promise<Doctor[]> {
+    const url: string = `http://localhost:8080/patients/${pid}/doctors`;
+    const doctors: Doctor[] = await this.http.get<Doctor[]>(url).toPromise();
+    return doctors;
   }
 }

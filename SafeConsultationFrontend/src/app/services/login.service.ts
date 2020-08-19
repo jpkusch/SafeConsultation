@@ -3,13 +3,15 @@ import { HttpClient } from '@angular/common/http';
 import { Login } from '../models/Login';
 import { Patient } from '../models/Patient';
 import { Doctor } from '../models/Doctor';
+import { CookieService} from 'ngx-cookie-service';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class LoginService {
 
-  constructor(private http:HttpClient) { }
+  constructor(private http:HttpClient, private cookie:CookieService) { }
 
   patientUser:Patient = null;
   doctorUser:Doctor = null;
@@ -27,6 +29,10 @@ export class LoginService {
   async doctorLogIn(login:Login){
     const doctor:Doctor = await this.http.post<Doctor>(`http://localhost:8080/doctors/login`,login).toPromise();
     this.doctorUser = doctor;
+    console.log(this.doctorUser);
+    let did:string = String(this.doctorUser.did);
+    this.cookie.set('did',did);
+
   }
 
   async doctorSignUp(doctor:Doctor){

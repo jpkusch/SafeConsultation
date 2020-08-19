@@ -9,6 +9,10 @@ import {PatientService} from '../../services/patient.service';
 })
 export class PatientPageComponent implements OnInit {
 
+  appTabOpen: boolean = true;
+  patTabOpen: boolean = false;
+  accTabOpen: boolean = false;
+
   constructor(private patientService:PatientService) { }
 
   patient:Patient;
@@ -16,4 +20,17 @@ export class PatientPageComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  clickTab(tabName: string): void {
+    this.appTabOpen = false;
+    this.patTabOpen = false;
+    this.accTabOpen = false;
+
+    if (tabName === 'Appointments') {
+      this.appTabOpen = true;
+    } else if (tabName === 'Patients') {
+      this.patTabOpen = true;
+    } else if (tabName === 'Account') {
+      this.accTabOpen = true;
+    }
+  }
 }

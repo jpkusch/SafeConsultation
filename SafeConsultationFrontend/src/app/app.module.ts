@@ -8,7 +8,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { MatRadioModule } from '@angular/material/radio'
 import { MatFormFieldModule } from '@angular/material/form-field'
- 
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginPageComponent } from './components/login-page/login-page.component';
@@ -21,6 +21,7 @@ import { DoctorTabComponent } from './components/doctor-tab/doctor-tab.component
 import { PatientTabComponent } from './components/patient-tab/patient-tab.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { fromEventPattern } from 'rxjs';
+import { ViewMoreComponent } from './components/view-more/view-more.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { fromEventPattern } from 'rxjs';
     AppointmentsTabComponent,
     AccountTabComponent,
     DoctorTabComponent,
-    PatientTabComponent
+    PatientTabComponent,
+    ViewMoreComponent
   ],
   imports: [
     BrowserModule,
