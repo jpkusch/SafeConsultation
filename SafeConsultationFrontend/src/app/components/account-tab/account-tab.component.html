@@ -1,1 +1,17 @@
-<p>account-tab works!</p>
+<div *ngIf="doctor" >
+  <mat-form-field appearance="standard">
+    <mat-label>Specialty: </mat-label>
+    <input matInput type="text" [(ngModel)]="doctor.specialty"/>
+  </mat-form-field>
+</div>
+
+<div *ngIf="patient" >
+  <mat-form-field appearance="standard">
+    <mat-label>Height: </mat-label><input matInput type="number" [(ngModel)]="patient.height"/>
+    <mat-label>Weight: </mat-label><input matInput type="number" [(ngModel)]="patient.weight"/>
+    <mat-label>Blood Type: </mat-label><input matInput type="text" [(ngModel)]="patient.bloodType"/>
+    <mat-label>Age: </mat-label><input matInput type="number" [(ngModel)]="patient.age"/>
+  </mat-form-field>
+</div>
+
+<button mat-raised-button (click)="updateUser()">Update</button>
