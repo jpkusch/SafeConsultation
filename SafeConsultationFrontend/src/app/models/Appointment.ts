@@ -16,7 +16,7 @@ export class Appointment {
 	doctor: Doctor;
 	patient: Patient;
 
-  public Appointment(aid:number, symptoms: string, status: string, aptTime: Date, diagnosis: string,
+  constructor(aid:number, symptoms: string, status: string, aptTime: Date, diagnosis: string,
 	treatment: string, meetingLink: string, doctor: Doctor, patient: Patient) {
 	this.aid = aid;
 	this.symptoms = symptoms;
@@ -29,6 +29,5 @@ export class Appointment {
 	this.patient = patient;
 }
   }
-
 
 
