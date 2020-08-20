@@ -13,6 +13,7 @@ export class AppointmentService {
 
   async createAppointment(appointment: Appointment):Promise<Appointment>{
       
+
     const appoint:Appointment = await this.http.post<Appointment>("http://localhost:8080/appointments", appointment).toPromise();
     return appoint;
   }
@@ -27,5 +28,17 @@ export class AppointmentService {
     
     const appoint:Appointment = await this.http.put<Appointment>("http://localhost:8080/appointments",appointment).toPromise();
     return appoint;
+  }
+
+  async getAppointmentByDoctor(id:number):Promise<Array<Appointment>>{
+    
+    const appointments:Array<Appointment> = await this.http.get<Array<Appointment>>(`http://localhost:8080/doctors/${id}/appointments`).toPromise();
+    return appointments;
+  }
+
+  async getAppointmentByPatient(id:number):Promise<Array<Appointment>>{
+    
+    const appointments:Array<Appointment> = await this.http.get<Array<Appointment>>(`http://localhost:8080/patients/${id}/appointments`).toPromise();
+    return appointments;
   }
 }

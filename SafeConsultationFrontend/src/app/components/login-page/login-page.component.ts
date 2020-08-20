@@ -41,7 +41,9 @@ export class LoginPageComponent implements OnInit {
       }else{
         alert("Either the username or password is incorrect. Please try again.");
       }
+
     } 
+
   }
   async doctorLogIn(){
     if(this.username && this.password){
@@ -52,6 +54,7 @@ export class LoginPageComponent implements OnInit {
       } else{
       alert("Either the username or password is incorrect. Please try again.");
       }
+
     }
   }
 
