@@ -45,7 +45,7 @@ export class DoctorTabComponent implements OnInit {
 
   async makeAppointment():Promise<void>{
     
-    let newAppointment = new Appointment(0, "", this.enteredSymptoms, this.selectedDateTime, "", "", "zoom.com", this.selectedDoctor, this.loggedInPatient);
+    let newAppointment = new Appointment(0, this.enteredSymptoms, "", this.selectedDateTime, "", "", "zoom.com", this.selectedDoctor, this.loggedInPatient);
 
     this.appointment = await this.appointmentService.createAppointment(newAppointment);
   }
