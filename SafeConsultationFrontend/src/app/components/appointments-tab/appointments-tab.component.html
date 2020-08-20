@@ -8,12 +8,12 @@
         <th>More Info</th>
     </tr>
 <tr *ngFor = "let app of appointments">
-        <td [(ngModel)]="app.pid" ngDefaultControl>{{app.aid}}</td>
-        <td>{{app.patient.username}}</td>
+        <td [(ngModel)]="app.aid" ngDefaultControl>{{app.aid}}</td>
+        <td [(ngModel)]="app.patient.pid" ngDefaultControl>{{app.patient.username}}</td>
         <td>{{app.status}}</td>
         <td>{{app.aptTime | date:"MM/dd/yy"}}</td>
         <td>{{app.aptTime | date:"h/mm a"}}</td>
-        <td><button (click)="clickBtn(app.aid)">More Info</button></td>       
+        <td><button (click)="clickBtn(app.aid,app.patient.pid)">More Info</button></td>       
     </tr>
 </table>
 
@@ -27,12 +27,12 @@
         <th>More Info</th>
     </tr>
 <tr *ngFor = "let app of appointments">
-        <td [(ngModel)]="app.pid" ngDefaultControl>{{app.aid}}</td>
-        <td>{{app.doctor.username}}</td>
+        <td [(ngModel)]="app.aid" ngDefaultControl>{{app.aid}}</td>
+        <td [(ngModel)]="app.doctor.did" ngDefaultControl>{{app.doctor.username}}</td>
         <td>{{app.status}}</td>
         <td>{{app.aptTime | date:"MM/dd/yy"}}</td>
         <td>{{app.aptTime | date:"h/mm a"}}</td>
-        <td><button (click)="clickBtn(app.aid)">More Info</button></td>       
+        <td><button (click)="clickBtn(app.aid,app.doctor.did)">More Info</button></td>       
     </tr>
 </table>
 

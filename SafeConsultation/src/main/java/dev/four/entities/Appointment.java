@@ -12,6 +12,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
 @Table(name="appointment")
@@ -42,12 +43,12 @@ public class Appointment {
 	
 	@ManyToOne
 	@JoinColumn(name="d_id")
-	@JsonBackReference(value="doctorParent")
+	//@JsonManagedReference(value="doctor")
 	private Doctor doctor;
 	
 	@ManyToOne
 	@JoinColumn(name="p_id")
-	@JsonBackReference(value="patientParent")
+	//@JsonManagedReference(value="patient")
 	private Patient patient;
 	
 	public Appointment() {

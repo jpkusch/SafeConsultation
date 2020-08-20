@@ -37,10 +37,10 @@ public class PatientController {
 		return pserv.getPatientById(id);
 	}
 	
-	@RequestMapping(value = "/patients/{id}/appointments", method = RequestMethod.GET)
+	/*@RequestMapping(value = "/patients/{id}/appointments", method = RequestMethod.GET)
 	public List<Appointment> getAppointmentsByPatient(@PathVariable int id) {
 		return pserv.getPatientById(id).getAppointments();
-	}
+	}*/
 	
 	@RequestMapping(value = "/patients", method = RequestMethod.PUT)
 	public Patient updatePatient(@RequestBody Patient patient) {

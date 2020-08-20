@@ -13,19 +13,31 @@ export class AppointmentService {
 
   async createAppointment(appointment: Appointment):Promise<Appointment>{
       
-    const appoint:Appointment = await this.http.post<Appointment>("https://localhost:8080/appointments",JSON.stringify(appointment)).toPromise();
+    const appoint:Appointment = await this.http.post<Appointment>("http://localhost:8080/appointments",appointment).toPromise();
     return appoint;
   }
 
   async getAppointmentById(aid: number):Promise<Appointment>{
-    const appoint:Appointment = await this.http.get<Appointment>(`https://localhost:8080/appointments/${aid}`).toPromise();
+    const appoint:Appointment = await this.http.get<Appointment>(`http://localhost:8080/appointments/${aid}`).toPromise();
     return appoint;
   }
 
 
   async updateAppointment(appointment: Appointment):Promise<Appointment>{
     
-    const appoint:Appointment = await this.http.put<Appointment>("https://localhost:8080/appointments",JSON.stringify(appointment)).toPromise();
+    const appoint:Appointment = await this.http.put<Appointment>("http://localhost:8080/appointments",appointment).toPromise();
     return appoint;
+  }
+
+  async getAppointmentByDoctor(id:number):Promise<Array<Appointment>>{
+    
+    const appointments:Array<Appointment> = await this.http.get<Array<Appointment>>(`http://localhost:8080/doctors/${id}/appointments`).toPromise();
+    return appointments;
+  }
+
+  async getAppointmentByPatient(id:number):Promise<Array<Appointment>>{
+    
+    const appointments:Array<Appointment> = await this.http.get<Array<Appointment>>(`http://localhost:8080/patients/${id}/appointments`).toPromise();
+    return appointments;
   }
 }
