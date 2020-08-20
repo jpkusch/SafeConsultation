@@ -41,9 +41,7 @@ export class LoginPageComponent implements OnInit {
       }else{
         alert("Either the username or password is incorrect. Please try again.");
       }
-    } else {
-      alert("Please ensure the username and password fields are correctly fill out.")
-    }
+    } 
   }
   async doctorLogIn(){
     if(this.username && this.password){
@@ -54,8 +52,6 @@ export class LoginPageComponent implements OnInit {
       } else{
       alert("Either the username or password is incorrect. Please try again.");
       }
-    } else {
-    alert("Please ensure the username and password fields are correctly fill out.")
     }
   }
 
@@ -68,8 +64,6 @@ export class LoginPageComponent implements OnInit {
       } else {
       alert("Either the username or password is already taken. Please try again.");
       }
-    } else {
-      alert("Please ensure the username and password are at least 6 characters and the age is greater than 0.")
     }
   }
 
@@ -82,8 +76,6 @@ export class LoginPageComponent implements OnInit {
       } else {
         alert("Either the username or password is already taken. Please try again.");
         }
-      } else {
-        alert("Please ensure the username and password are at least 6 characters and the age is greater than 0.")
       }
     }
 
