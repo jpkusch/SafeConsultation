@@ -1,6 +1,8 @@
 package dev.four.pages;
 
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 public class DoctorPage {
@@ -11,6 +13,10 @@ public class DoctorPage {
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
 	}
+	
+	// Other Objects
+	@FindBy(id="doctorTitle")
+	public WebElement doctorTitle;
 
 	
 }
