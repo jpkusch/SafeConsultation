@@ -2,11 +2,14 @@ import { Component, OnInit } from '@angular/core';
 import { LoginService } from './../../services/login.service';
 import { DoctorService } from './../../services/doctor.service';
 import { PatientService } from './../../services/patient.service';
+import { AppointmentService } from './../../services/appointment.service';
 import { Patient } from './../../models/Patient';
 import { Doctor } from './../../models/Doctor';
 import { Appointment } from './../../models/Appointment';
 import { HttpClient } from '@angular/common/http';
 import {ViewMoreComponent} from '../view-more/view-more.component'
+import { MatDialog, MatDialogRef } from  '@angular/material/dialog';
+
 
 @Component({
   selector: 'app-appointments-tab',
@@ -23,7 +26,7 @@ export class AppointmentsTabComponent implements OnInit {
   loginDoctor:Doctor =null;
   loginPatient:Patient = null;
 
-  constructor(private httpClient: HttpClient, private loginService:LoginService, private doctorService:DoctorService, private patientService:PatientService) {
+  constructor(private appointService:AppointmentService, private  dialog:  MatDialog, private httpClient: HttpClient, private loginService:LoginService, private doctorService:DoctorService, private patientService:PatientService) {
 
    }
 
@@ -32,10 +35,10 @@ export class AppointmentsTabComponent implements OnInit {
     await this.getLoginPatient();
 
     if(this.loginDoctor===null){
-      await this.getDoctorByPatient();
+      await this.getAppointmentByPatient();
     }
     else{
-      await this.getPatientsByDoctor();
+      await this.getAppointmentByDoctor();
     }
 
   }
@@ -47,11 +50,22 @@ export class AppointmentsTabComponent implements OnInit {
   async getLoginPatient(){
     this.loginPatient = await this.loginService.patientUser;
  }
+
+ async getAppointmentByDoctor(){
+   this.appointments = await this.appointService.getAppointmentByDoctor(this.loginDoctor.did);
+ }
+
+ async getAppointmentByPatient(){
+  this.appointments = await this.appointService.getAppointmentByPatient(this.loginPatient.pid);
+}
   
- async getPatientsByDoctor(){
+ /*async getPatientsByDoctor(){
     this.patients = await this.doctorService.getPatientsByDoctor(this.loginDoctor.did);
     for(let p of this.patients){
+      console.log(p)
       for(let a of p.appointments){
+        //console.log(a.doctor.did)
+        //if(a.doctor.did === this.loginDoctor.did){
         a.patient = p;
         this.appointments.push(a);
     }}
@@ -61,71 +75,20 @@ export class AppointmentsTabComponent implements OnInit {
   async getDoctorByPatient(){
     this.doctors = await this.patientService.getDoctorByPatient(this.loginPatient.pid)
     for(let d of this.doctors){
+      console.log(d)
       for(let a of d.appointments){
         a.doctor = d;
         this.appointments.push(a);
     }}
     return this.appointments;
-  }
+  }*/
 
-  clickBtn(aid:number){
-      //alert(ViewMoreComponent);
-      console.log(aid);
+  clickBtn(aid:number, userID:number){
+    
+      this.dialog.open(ViewMoreComponent,{ data:  { aid:aid, userID: userID}});
   }
   
   
- /*     this.loginDoctor = this.doctorService.getDoctorById(value);
-
-
-  async getDoctorById(did: number): Promise<Doctor> {
-    const url: string = `http://localhost:8080/doctors/${did}`;
-    const doctor: Doctor = await this.httpClient.get<Doctor>(url).toPromise();
-    return doctor;
-  }
-
-
-
-
- // patientUser:Patient = this.loginService.patientUser;
-  //doctorUser:Doctor = this.loginService.doctorUser;
-  //userName:string = this.doctorUser.username;
-
- /* logInUser(){
-    if(this.patientUser.pid === null && this.doctorUser.did === null){
-      this.doctorView = false;
-      this.patientView = false;
-    }
-    else if(this.patientUser.pid !== null && this.doctorUser.did === null){
-      this.doctorView = false;
-      this.patientView = true;
-    }    else if(this.patientUser.pid === null){
-      this.doctorView = true;
-      this.patientView = false;
-      this.allDoctorsAppoint();
-  }
-
-    
-  }
-
-  async allDoctorsAppoint():Promise<void>{
-    this.appointments = await this.doctorService.getAppointmentsByDoctor(this.doctorUser.did);
-    }
-
-  /*async getDoctorById():Promise<void>{
-      this.doctor = await this.doctorService.getDoctorById(1);
-      }
-
-
-
-
-
-      async getDoctorById(did: number): Promise<Doctor> {
-        const url: string = `http://localhost:8080/doctors/${did}`;
-        const doctor: Doctor = await this.httpClient.get<Doctor>(url).toPromise();
-        return doctor;
-    
-      }*/
-
 
 }
 
