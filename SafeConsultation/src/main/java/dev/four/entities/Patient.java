@@ -11,6 +11,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
@@ -41,7 +42,7 @@ public class Patient {
 	private String bloodType;
 	
 	@OneToMany(mappedBy = "patient", cascade = CascadeType.ALL)
-	@JsonManagedReference(value="patientParent")
+	@JsonBackReference()
 	private List<Appointment> appointments;
 	
 	public Patient() {

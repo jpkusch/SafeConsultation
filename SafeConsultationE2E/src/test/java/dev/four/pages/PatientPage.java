@@ -28,7 +28,8 @@ public class PatientPage {
 	
 	@FindBy(id="createAppt")
 	public WebElement createAppt;
-	
-	
 
+	// Other Objects
+	@FindBy(id="patientTitle")
+	public WebElement patientTitle;
 }

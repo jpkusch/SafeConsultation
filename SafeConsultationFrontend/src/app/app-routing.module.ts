@@ -7,7 +7,8 @@ import { Routes, RouterModule } from '@angular/router';
 const routes: Routes = [
   {path: 'login', component: LoginPageComponent},
   {path: 'doctor', component: DoctorPageComponent},
-  {path: 'patient', component: PatientPageComponent}
+  {path: 'patient', component: PatientPageComponent},
+  {path: '**', component: LoginPageComponent},
 ];
 
 @NgModule({
