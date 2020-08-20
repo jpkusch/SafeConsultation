@@ -38,22 +38,25 @@ export class LoginPageComponent implements OnInit {
       await this.loginService.patientLogIn(login);
       if(this.loginService.patientUser != null){
         this.router.navigateByUrl('/patient');
+      }else{
+        alert("Either the username or password is incorrect. Please try again.");
       }
-      alert("Either the username or password is incorrect. Please try again.");
+    } else {
+      alert("Please ensure the username and password fields are correctly fill out.")
     }
-    alert("Please ensure the username and password fields are correctly fill out.")
   }
-
   async doctorLogIn(){
     if(this.username && this.password){
       let login:Login = new Login(this.username, this.password);
       await this.loginService.doctorLogIn(login);
       if(this.loginService.doctorUser != null){
         this.router.navigateByUrl('/doctor');
-      }
+      } else{
       alert("Either the username or password is incorrect. Please try again.");
-    }
+      }
+    } else {
     alert("Please ensure the username and password fields are correctly fill out.")
+    }
   }
 
   async patientSignUp(){
@@ -62,10 +65,12 @@ export class LoginPageComponent implements OnInit {
       await this.loginService.patientSignUp(patient);
       if(this.loginService.patientUser != null){
         this.router.navigateByUrl('/patient');
-      }
+      } else {
       alert("Either the username or password is already taken. Please try again.");
+      }
+    } else {
+      alert("Please ensure the username and password are at least 6 characters and the age is greater than 0.")
     }
-    alert("Please ensure the username and password are at least 6 characters and the age is greater than 0.")
   }
 
   async doctorSignUp(){
@@ -74,11 +79,13 @@ export class LoginPageComponent implements OnInit {
       await this.loginService.doctorSignUp(doctor);
       if(this.loginService.doctorUser != null){
         this.router.navigateByUrl('/doctor');
+      } else {
+        alert("Either the username or password is already taken. Please try again.");
+        }
+      } else {
+        alert("Please ensure the username and password are at least 6 characters and the age is greater than 0.")
       }
-      alert("Either the username or password is already taken. Please try again.");
     }
-    alert("Please ensure the username and password are at least 6 characters and the specialty is at least 3 characters.")
-  }
 
   manageSignUp(){
     if(this.userType === 'doctor'){
