@@ -1,6 +1,6 @@
 <div>
-<h1 *ngIf = "showSignUp">Signup Page</h1>
-<h1 *ngIf = "!showSignUp">Login Page</h1>
+<h1 id="signupTitle" *ngIf = "showSignUp">Signup Page</h1>
+<h1 id="loginTitle" *ngIf = "!showSignUp">Login Page</h1>
 
 <mat-radio-group aria-label="Please select which type of user you are:" [(ngModel)]="userType">
     <mat-radio-button matInput name="patient" value="patient">Patient</mat-radio-button>
@@ -53,11 +53,11 @@
     </mat-form-field>
 </div>
 <div *ngIf = "showSignUp">
-    <button mat-raised-button (click)="manageSignUp()">Sign Up</button>
-    <button mat-raised-button (click)="switchPage()">Go to Login Page</button>
+    <button mat-raised-button id="signupBtn" (click)="manageSignUp()">Sign Up</button>
+    <button mat-raised-button id="loginPageBtn" (click)="switchPage()">Go to Login Page</button>
 </div>
 <div *ngIf = "!showSignUp">
-    <button mat-raised-button (click)="manageLogIn()">Log In</button>
-    <button mat-raised-button (click)="switchPage()">Go to Sign Up Page</button>
+    <button mat-raised-button id="loginBtn" (click)="manageLogIn()">Log In</button>
+    <button mat-raised-button id="signupPageBtn" (click)="switchPage()">Go to Sign Up Page</button>
 </div>
 
