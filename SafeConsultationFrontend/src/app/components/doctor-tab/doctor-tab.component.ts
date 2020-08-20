@@ -5,6 +5,7 @@ import {Appointment} from '../../models/Appointment'
 import {AppointmentService} from '../../services/appointment.service'
 import {Patient} from '../../models/Patient';
 import {LoginService} from '../../services/login.service'
+import { MatTableDataSource } from '@angular/material/table';
 
 
 @Component({
@@ -27,13 +28,16 @@ export class DoctorTabComponent implements OnInit {
   selectedDoctor:Doctor;
   loggedInPatient:Patient = this.loginService.patientUser;
 
+  dataSource = null;
+  columnsToDisplay = ['username', 'specialty', 'button'];
 
-  ngOnInit(): void {
-    this.showAllDoctors();
+  async ngOnInit(): Promise<void> {
+    await this.showAllDoctors();
   }
 
   async showAllDoctors():Promise<void>{
     this.alldoctors = await this.doctorService.getAllDoctors();
+    this.dataSource = new MatTableDataSource<Doctor>(this.alldoctors);
   }
 
   async goToMakeAppointment(did:number):Promise<void>{
