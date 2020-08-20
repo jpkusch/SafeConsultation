@@ -31,6 +31,7 @@ public class AppointmentController {
 	
 	@RequestMapping(value = "/appointments", method = RequestMethod.POST)
 	public Appointment createAppointment(@RequestBody Appointment appointment) {
+		appointment.setStatus("reserved");
 		return this.aserv.createAppointment(appointment);
 	}
 	

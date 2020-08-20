@@ -9,9 +9,9 @@ import {LoginService} from '../../services/login.service'
   styleUrls: ['./patient-page.component.css']
 })
 export class PatientPageComponent implements OnInit {
-  appTabOpen: boolean = true;
+  /* appTabOpen: boolean = true;
   patTabOpen: boolean = false;
-  accTabOpen: boolean = false;
+  accTabOpen: boolean = false; */
   constructor(private patientService:PatientService, private loginService:LoginService) { }
 
   browseDoctors:Boolean = false;
@@ -61,22 +61,42 @@ export class PatientPageComponent implements OnInit {
     this.browseDoctors = false;
   } 
 
-  async getLoggedPatient(){
+  async updatePatient():Promise<void>{
 
+    if(this.enteredHeight != null){
+      this.patient.height = this.enteredHeight;
+    }
+    else{
+      this.patient.height = this.patient.height;
+    }
 
+    if(this.enteredWeight != null){
+      this.patient.weight = this.enteredWeight;
+    }
+    else{
+      this.patient.weight = this.patient.weight;
+    }
+
+    if(this.enteredBloodType != null){
+      this.patient.bloodType = this.enteredBloodType;
+    }
+    else{
+      this.patient.bloodType = this.patient.bloodType;
+    }
+    
+    if(this.enteredAge != null){
+      this.patient.age = this.enteredAge;
+    }
+    else{
+      this.patient.age =  this.patient.age;
+    }
+    
+    this.patient = await this.patientService.updatePatient(this.patient);
+
+    this.goToAccountInfo();
   }
 
-  async updatePatient(patientIn:Patient):Promise<void>{
-
-    patientIn.height = this.enteredHeight;
-    patientIn.weight = this.enteredWeight;
-    patientIn.bloodType = this.enteredBloodType;
-    patientIn.age = this.enteredAge;
-
-    this.patient = await this.patientService.updatePatient(patientIn);
-  }
-
-  clickTab(tabName: string): void {
+/*   clickTab(tabName: string): void {
     this.appTabOpen = false;
     this.patTabOpen = false;
     this.accTabOpen = false;
@@ -88,5 +108,5 @@ export class PatientPageComponent implements OnInit {
     } else if (tabName === 'Account') {
       this.accTabOpen = true;
     }
-  }
+  } */
 }

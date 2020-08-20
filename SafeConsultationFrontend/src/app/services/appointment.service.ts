@@ -13,7 +13,8 @@ export class AppointmentService {
 
   async createAppointment(appointment: Appointment):Promise<Appointment>{
       
-    const appoint:Appointment = await this.http.post<Appointment>("http://localhost:8080/appointments",appointment).toPromise();
+
+    const appoint:Appointment = await this.http.post<Appointment>("http://localhost:8080/appointments", appointment).toPromise();
     return appoint;
   }
 
