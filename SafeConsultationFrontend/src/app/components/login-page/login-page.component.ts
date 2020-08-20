@@ -42,7 +42,7 @@ export class LoginPageComponent implements OnInit {
         alert("Either the username or password is incorrect. Please try again.");
       }
     } else {
-      alert("Please ensure the username and password fields are correctly fill out.")
+        //alert("Please ensure the username and password fields are correctly fill out.")
     }
   }
   async doctorLogIn(){
@@ -55,7 +55,7 @@ export class LoginPageComponent implements OnInit {
       alert("Either the username or password is incorrect. Please try again.");
       }
     } else {
-    alert("Please ensure the username and password fields are correctly fill out.")
+      //alert("Please ensure the username and password fields are correctly fill out.")
     }
   }
 
