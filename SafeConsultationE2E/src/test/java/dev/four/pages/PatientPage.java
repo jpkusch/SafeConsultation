@@ -53,6 +53,10 @@ public class PatientPage {
 	@FindBy(id="cancelApptButton")
 	public WebElement cancelApptButton;
 	
+	
+	@FindBy(id="apptStatus")
+	public WebElement apptStatus;
+	
 	@FindBy(id="goToUpdate")
 	public WebElement goToUpdateButton;
 	

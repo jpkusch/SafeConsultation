@@ -1,6 +1,6 @@
 <h1 id="viewmore">View More</h1>
    
-        <div *ngIf="router.url === '/doctor'" id="DoctorViewMorePopup">
+        <div *ngIf="router.url === '/doctor' && patient" id="DoctorViewMorePopup">
 
            <h2>Appointment Details</h2>
             <p>Patient: {{patient.username}}</p>
@@ -34,14 +34,14 @@
 
           </div>
 
-        <div *ngIf="router.url === '/patient'">
+        <div *ngIf="router.url === '/patient' && doctor">
             <h2>Appointment Details</h2>
             <p>Doctor: {{doctor.username}}</p>
             <p>Symptoms: {{appointment.symptoms}}</p>
             <p>Date: {{appointment.aptTime | date:"MM/dd/yy"}}</p>
             <p>Time: {{appointment.aptTime | date:"h/mm a"}}</p>
             <p>Meeting link: {{appointment.meetingLink}}</p>
-            <p>Status: {{appointment.status}}</p>
+            <p id="apptStatus">Status: {{appointment.status}}</p>
             <p *ngIf="appointment.diagnosis != ''">Diagnosis: {{appointment.diagnosis}}</p>
             <p *ngIf="appointment.treatment != ''">Treatment: {{appointment.treatment}}</p>
             <button mat-raised-button (click)="rescheduleAppPatient()">Reschedule Appointment</button>

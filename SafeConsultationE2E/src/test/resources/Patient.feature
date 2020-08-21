@@ -26,7 +26,7 @@ Feature: Patient gets treatment
 		When The User clicks the more info button
 		Then The update appointment popup appears
 		When The User clicks cancel appointment
-		Then The appointments tab is open again
+		When The user confirms cancel
 		Then Appointment has status cancelled
 		
 	Scenario: A patient wants to update their information
