@@ -44,7 +44,7 @@ public class PatientPage {
 	@FindBy(id="userInfo")
 	public WebElement userInfo;
 	
-	@FindBy(id="9")
+	@FindBy(id="doc2")
 	public WebElement appMoreInfoButton;
 	
 	@FindBy(id="viewmore")
