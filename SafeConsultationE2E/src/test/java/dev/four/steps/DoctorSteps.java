@@ -31,7 +31,7 @@ public class DoctorSteps {
 	    doctorpage.DoctorAppointmentButton.click();
 	}
 
-	@Then("^The appointments tab is open$")
+	@Then("^The app tab is open$")
 	public void the_appointments_tab_is_open() throws Throwable {
 		Assert.assertEquals(doctorpage.doctorTable.isDisplayed(), true);
 	}
@@ -41,7 +41,7 @@ public class DoctorSteps {
 		 doctorpage.ViewMore.click();
 	}
 
-	@Then("^The update appointment popup appears$")
+	@Then("^The update appointments popup appears$")
 	public void the_update_appointment_popup_appears() throws Throwable {
 		Assert.assertEquals(doctorpage.DoctorViewMorePopup.isDisplayed(), true);
 		
@@ -71,7 +71,7 @@ public class DoctorSteps {
 
 	@Then("^the first patient is \"([^\"]*)\"$")
 	public void the_first_patient_is(String arg1) throws Throwable {
-		Assert.assertEquals(doctorpage.FirstPatiant.getText(), "princessPeach");
+		Assert.assertEquals(doctorpage.FirstPatiant.getText(), "Toad");
 	}
 
 	@When("^the User clicks the account information tab button$")

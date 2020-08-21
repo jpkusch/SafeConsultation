@@ -85,6 +85,7 @@ export class ViewMoreComponent implements OnInit {
       //this.appointment.doctor = this.loginDoctor;
       //this.appointment.patient = this.patient;
       await this.appointService.updateAppointment(this.appointment);
+      await this.appointService.getAppointmentByDoctor(this.doctor.did)
     }
 
     async rescheduleAppPatient(){
@@ -97,6 +98,7 @@ export class ViewMoreComponent implements OnInit {
     //  this.appointment.patient = this.loginPatient;
     //  this.appointment.doctor = this.doctor;
       await this.appointService.updateAppointment(this.appointment);
+      await this.appointService.getAppointmentByPatient(this.patient.pid)
     }
 
     async cancelAppDoctor(){
@@ -106,6 +108,7 @@ export class ViewMoreComponent implements OnInit {
      // this.appointment.patient = this.patient;
      console.log(this.appointment);
       await this.appointService.updateAppointment(this.appointment);
+      await this.appointService.getAppointmentByDoctor(this.doctor.did)
     }
 
     async cancelAppPatient(){
@@ -115,6 +118,7 @@ export class ViewMoreComponent implements OnInit {
       //this.appointment.doctor = this.doctor;
       console.log(this.appointment);
       await this.appointService.updateAppointment(this.appointment);
+      await this.appointService.getAppointmentByPatient(this.patient.pid)
     }
 
     async prescription(){
@@ -124,6 +128,7 @@ export class ViewMoreComponent implements OnInit {
      // this.appointment.doctor = this.loginDoctor;
      // this.appointment.patient = this.patient;
       await this.appointService.updateAppointment(this.appointment);
+      await this.appointService.getAppointmentByDoctor(this.doctor.did)
     }
 
 
