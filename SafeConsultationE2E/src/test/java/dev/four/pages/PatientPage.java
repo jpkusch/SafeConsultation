@@ -17,8 +17,14 @@ public class PatientPage {
 	@FindBy(id="browseDrs")
 	public WebElement doctorsTabButton;
 	
+	@FindBy(id="docsTab")
+	public WebElement docsTab;
+	
 	@FindBy(id="2")
 	public WebElement tomakeApptButton;
+	
+	@FindBy(id="makeApptSection")
+	public WebElement makeApptSection;
 	
 	@FindBy(id="symptomsfield")
 	public WebElement symptomsfield;
@@ -28,7 +34,40 @@ public class PatientPage {
 	
 	@FindBy(id="createAppt")
 	public WebElement createAppt;
-
+	
+	@FindBy(id="acctInfo")
+	public WebElement acctInfoButton;
+	
+	@FindBy(id="goToAppts")
+	public WebElement apptsTabButton;
+	
+	@FindBy(id="userInfo")
+	public WebElement userInfo;
+	
+	@FindBy(id="9")
+	public WebElement appMoreInfoButton;
+	
+	@FindBy(id="viewmore")
+	public WebElement updateApptPopUp;
+	
+	@FindBy(id="cancelApptButton")
+	public WebElement cancelApptButton;
+	
+	@FindBy(id="goToUpdate")
+	public WebElement goToUpdateButton;
+	
+	@FindBy(id="infoToUpdate")
+	public WebElement infoToUpdate;
+	
+	@FindBy(id="enteredblood")
+	public WebElement bloodTypeField;
+	
+	@FindBy(id="updateUserInfo")
+	public WebElement updateButton;
+	
+	@FindBy(id="bloodType")
+	public WebElement bloodType;
+	
 	// Other Objects
 	@FindBy(id="patientTitle")
 	public WebElement patientTitle;

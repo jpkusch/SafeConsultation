@@ -1,23 +1,24 @@
 <div>
 <h1 id="patientTitle">Patient Page</h1>
 <app-header></app-header>
-<button mat-raised-button (click)="goToAppointments()">Appointments</button> <button mat-raised-button (click)="goToBrowseDoctors()">Doctors</button> <button mat-raised-button (click)="goToAccountInfo()">Account Information</button>
+<button id="goToAppts" mat-raised-button (click)="goToAppointments()">Appointments</button> <button mat-raised-button (click)="goToBrowseDoctors()">Doctors</button> <button mat-raised-button (click)="goToAccountInfo()">Account Information</button>
+
 <app-appointments-tab *ngIf="appointments"></app-appointments-tab>
-<app-doctor-tab id="browseDrs"*ngIf="browseDoctors"></app-doctor-tab>
+<app-doctor-tab *ngIf="browseDoctors"></app-doctor-tab>
 <div *ngIf="accountInfo">
-    <h2>User Information</h2>
+    <h2 id="userInfo">User Information</h2>
     <p>Height: {{patient.height}}
     <p>Weight: {{patient.weight}}
-    <p>Blood Type: {{patient.bloodType}}
+    <p id="bloodType">Blood Type: {{patient.bloodType}}
     <p>Age: {{patient.age}}
-    <br><button mat-raised-button (click)="goToUpdateInfo()">Update</button>
+    <br><button id="goToUpdate" mat-raised-button (click)="goToUpdateInfo()">Update</button>
 </div>
 <div *ngIf="updateInfo">
-    <h2>User Information</h2>
+    <h2 id="infoToUpdate">User Information</h2>
     <p>Height: <input type="text" [(ngModel)] = "enteredHeight"></p>
     <p>Weight: <input type="text" [(ngModel)] = "enteredWeight"></p>
-    <p>Blood Type: <input type="text" [(ngModel)] = "enteredBloodType"></p>
+    <p>Blood Type: <input type="text" id="enteredblood" [(ngModel)] = "enteredBloodType"></p>
     <p>Age: <input type="text" [(ngModel)] = "enteredAge"></p>
-    <button mat-raised-button (click)="updatePatient()">Update</button>
+    <button id="updateUserInfo" mat-raised-button (click)="updatePatient()">Update</button>
 </div>
 </div>

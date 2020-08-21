@@ -1,5 +1,5 @@
 <div *ngIf="showAllDrs">
-    <h2>Browse Doctors</h2>
+    <h2 id="docsTab">Browse Doctors</h2>
     <table mat-table [dataSource]="dataSource" *ngIf="alldoctors.length != 0">
         <ng-container matColumnDef="username">
             <th mat-header-cell *matHeaderCellDef>Doctor's Name</th>
@@ -22,7 +22,7 @@
 </table>
 </div>
 <div *ngIf="makeApptTab">
-    <h2>Make an Appointment</h2>
+    <h2 id="makeApptSection">Make an Appointment</h2>
     <textarea id="symptomsfield" cols="30" rows="10" [(ngModel)] ="enteredSymptoms">Symptoms</textarea><br>
     <input id="dateTime" matInput [matDatepicker]="picker" [(ngModel)]="selectedDateTime">
     <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>

@@ -8,6 +8,7 @@ import {LoginService} from '../../services/login.service'
 import { MatTableDataSource } from '@angular/material/table';
 
 
+
 @Component({
   selector: 'app-doctor-tab',
   templateUrl: './doctor-tab.component.html',
@@ -52,6 +53,11 @@ export class DoctorTabComponent implements OnInit {
     let newAppointment = new Appointment(0, this.enteredSymptoms, "", this.selectedDateTime, "", "", "zoom.com", this.selectedDoctor, this.loggedInPatient);
 
     this.appointment = await this.appointmentService.createAppointment(newAppointment);
+
+    alert("Your appointment has been booked!");
+
+    this.makeApptTab = false;
+    this.showAllDrs = true;
   }
 
 }
