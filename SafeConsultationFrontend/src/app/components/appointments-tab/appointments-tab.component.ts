@@ -67,6 +67,7 @@ export class AppointmentsTabComponent implements OnInit {
 
  async getAppointmentByPatient(){
   this.appointments = await this.appointService.getAppointmentByPatient(this.loginPatient.pid);
+  console.log(this.appointments);
 }
 
  /*async getPatientsByDoctor(){
