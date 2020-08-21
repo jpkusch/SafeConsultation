@@ -1,6 +1,6 @@
 <h1>View More</h1>
    
-        <div *ngIf="router.url === '/doctor'">
+        <div *ngIf="router.url === '/doctor'" id="DoctorViewMorePopup">
            <h2>Appointment Details</h2>
             <p>Patient: {{patient.username}}</p>
             <p>Symptoms: {{appointment.symptoms}}</p>
@@ -13,7 +13,7 @@
             <p>Meeting link: {{appointment.meetingLink}}</p>
             <p>Status: {{appointment.status}}</p>
             <button (click)="rescheduleAppDoctor()">Reschedule Appointment</button>
-            <button (click)="cancelAppDoctor()">Cancel Appointment</button>
+            <button id="doctorCancelBtn" (click)="cancelAppDoctor()">Cancel Appointment</button>
 
             <p>Diagnosis: <input type="text" placeholder={{appointment.diagnosis}} [(ngModel)] = "diagnosis" ></p>
             <p>Treatment: <input type="text" placeholder={{appointment.treatment}} [(ngModel)] = "treatment" ></p>

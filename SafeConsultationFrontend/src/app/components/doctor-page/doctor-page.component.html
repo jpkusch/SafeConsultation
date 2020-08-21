@@ -1,7 +1,7 @@
 <app-header></app-header>
-<button mat-raised-button (click)="clickTab('Appointments')">Appointments</button>
-<button mat-raised-button (click)="clickTab('Patients')">Patients</button>
-<button mat-raised-button (click)="clickTab('Account')">Account Information</button>
+<button id="DoctorAppointmentButton" mat-raised-button (click)="clickTab('Appointments')">Appointments</button>
+<button id="DoctorPatientsButton" mat-raised-button (click)="clickTab('Patients')">Patients</button>
+<button id="DoctorAccountButton" mat-raised-button (click)="clickTab('Account')">Account Information</button>
 <app-appointments-tab *ngIf=appTabOpen></app-appointments-tab>
 <app-patient-tab *ngIf="patTabOpen" ></app-patient-tab>
 <app-account-tab *ngIf="accTabOpen"></app-account-tab>

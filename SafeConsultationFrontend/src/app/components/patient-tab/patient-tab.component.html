@@ -1,8 +1,8 @@
-<div *ngIf="dataSource">
+<div *ngIf="dataSource" id="DoctorPatientTab">
   <table mat-table [dataSource]="dataSource">
     <ng-container matColumnDef="patient">
       <th mat-header-cell *matHeaderCellDef> Patient </th>
-      <td mat-cell *matCellDef="let patient">{{patient.username}}</td>
+      <td id="trdc{{patient.pid}}" mat-cell *matCellDef="let patient">{{patient.username}}</td>
 
       <ng-container matColumnDef="age">
         <th mat-header-cell *matHeaderCellDef> Age </th>
