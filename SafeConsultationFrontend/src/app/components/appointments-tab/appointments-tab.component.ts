@@ -8,7 +8,8 @@ import { Doctor } from './../../models/Doctor';
 import { Appointment } from './../../models/Appointment';
 import { HttpClient } from '@angular/common/http';
 import {ViewMoreComponent} from '../view-more/view-more.component'
-import { MatDialog, MatDialogRef } from  '@angular/material/dialog';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { MatTableDataSource } from '@angular/material/table';
 
 
 @Component({
@@ -26,6 +27,9 @@ export class AppointmentsTabComponent implements OnInit {
   loginDoctor:Doctor =null;
   loginPatient:Patient = null;
 
+  dataSource = null;
+  displayedColumns: string[] = [];
+
   constructor(private appointService:AppointmentService, private  dialog:  MatDialog, private httpClient: HttpClient, private loginService:LoginService, private doctorService:DoctorService, private patientService:PatientService) {
 
    }
@@ -41,8 +45,14 @@ export class AppointmentsTabComponent implements OnInit {
       await this.getAppointmentByDoctor();
     }
 
+    this.dataSource = new MatTableDataSource<Appointment>(this.appointments);
+    if (this.loginDoctor) {
+      this.displayedColumns = ['ID', 'Patient', 'Status', 'Date', 'Time', 'MoreInfo'];
+    } else if (this.loginPatient) {
+      this.displayedColumns = ['ID', 'Doctor', 'Status', 'Date', 'Time', 'MoreInfo'];
+    }
   }
-  
+
   async getLoginDoctor(){
      this.loginDoctor = await this.loginService.doctorUser;
   }
@@ -58,7 +68,7 @@ export class AppointmentsTabComponent implements OnInit {
  async getAppointmentByPatient(){
   this.appointments = await this.appointService.getAppointmentByPatient(this.loginPatient.pid);
 }
-  
+
  /*async getPatientsByDoctor(){
     this.patients = await this.doctorService.getPatientsByDoctor(this.loginDoctor.did);
     for(let p of this.patients){
@@ -84,11 +94,11 @@ export class AppointmentsTabComponent implements OnInit {
   }*/
 
   clickBtn(aid:number, userID:number){
-    
+
       this.dialog.open(ViewMoreComponent,{ data:  { aid:aid, userID: userID}});
   }
-  
-  
+
+
 
 }
 
