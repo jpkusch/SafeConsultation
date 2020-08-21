@@ -51,11 +51,11 @@ public class PatientSteps {
 	}
 
 
-	@Then("^An alert pops up to confirm appointment$")
+	/*@Then("^An alert pops up to confirm appointment$")
 	public void an_alert_pops_up_to_confirm_appointment() throws Throwable {
 		Assert.assertTrue(driver.switchTo().alert().getText().equals("Your appointment has been booked!"));
 		
-	}
+	}*/
 	
 	/*@Given("^The User is on the Patient Page$")
 	public void the_User_is_on_the_patient_page() throws Throwable {

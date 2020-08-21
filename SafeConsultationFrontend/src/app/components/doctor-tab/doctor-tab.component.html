@@ -13,7 +13,7 @@
 
         <ng-container matColumnDef="button">
             <th mat-header-cell *matHeaderCellDef>Button</th>
-            <td mat-cell *matCellDef="let doctor"><button id="this.d.did" mat-raised-button (click)="goToMakeAppointment(doctor.did)">Make Appointment</button></td>
+            <td mat-cell *matCellDef="let doctor"><button id="doc{{doctor.did}}" mat-raised-button (click)="goToMakeAppointment(doctor.did)">Make Appointment</button></td>
         </ng-container>
 
         <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>

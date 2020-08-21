@@ -50,12 +50,13 @@ public class DoctorSteps {
 	@When("^The User clicks cancel appointment$")
 	public void the_User_clicks_cancel_appointment() throws Throwable {
 		doctorpage.doctorCancelBtn.click();
+		driver.switchTo().alert().accept();
 		
 	}
 
 	@Then("^Appointment \"([^\"]*)\" has status cancelled$")
 	public void appointment_has_status_cancelled(String arg1) throws Throwable {
-		Assert.assertEquals(doctorpage.DoctorSpecialty.getText(), "Cancelled");
+		Assert.assertEquals(doctorpage.DoctorStatus.getText(), "Cancelled");
 	}
 
 	@When("^The User clicks the patient tab button$")
@@ -82,18 +83,19 @@ public class DoctorSteps {
 
 	@When("^The User types \"([^\"]*)\" into the specialty field$")
 	public void the_User_types_into_the_specialty_field(String arg1) throws Throwable {
-		doctorpage.specialtyDoctor.sendKeys("Pediatrician");
+		doctorpage.specialtyDoctor.sendKeys(arg1);
 		
 	}
 
 	@When("^The User click the update button$")
 	public void the_User_click_the_update_button() throws Throwable {
 		doctorpage.updateAccountDoctor.click();
+		//driver.switchTo().alert().accept();
 	}
 
 	@Then("^The User's specialty is \"([^\"]*)\"$")
 	public void the_User_s_specialty_is(String arg1) throws Throwable {
-		Assert.assertEquals(doctorpage.specialtyDoctor.getText(), "Pediatrician");
+		Assert.assertEquals(doctorpage.specialtyDoctor.getText(), arg1);
 	}
 
 

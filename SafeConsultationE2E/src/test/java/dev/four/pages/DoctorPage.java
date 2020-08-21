@@ -53,8 +53,8 @@ public class DoctorPage {
 		@FindBy(id="doctorTable")
 		public WebElement doctorTable;
 		
-		@FindBy(id="doctortdstatus3")
-		public WebElement DoctorSpecialty;
+		@FindBy(id="doctortdstatus5")
+		public WebElement DoctorStatus;
 		
 		@FindBy(id="DoctorViewMorePopup")
 		public WebElement DoctorViewMorePopup;
@@ -62,7 +62,7 @@ public class DoctorPage {
 		@FindBy(id="DoctorPatientTab")
 		public WebElement DoctorPatientTab;
 		
-		@FindBy(id="trdc1")
+		@FindBy(id="trdc2")
 		public WebElement FirstPatiant;
 		
 		
