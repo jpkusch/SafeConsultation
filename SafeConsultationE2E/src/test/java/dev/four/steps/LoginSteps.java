@@ -99,13 +99,13 @@ public class LoginSteps {
 	    loginpage.specialtyField.sendKeys(arg1);
 	}
 
-	@Then("^The User is on the Doctor Page$")
-	public void the_User_is_on_the_Doctor_Page() throws Throwable {
+	@Then("^The User is on the Doctor page$")
+	public void the_User_is_on_the_Doctor_page() throws Throwable {
 		Assert.assertTrue(doctorpage.doctorTitle.getAttribute("innerHTML").equals("Doctor Page"));
 	}
 
-	@Then("^The User is on the Patient Page$")
-	public void the_User_is_on_the_Patient_Page() throws Throwable {
+	@Then("^The User is on the Patient page$")
+	public void the_User_is_on_the_Patient_page() throws Throwable {
 		Assert.assertTrue(patientpage.patientTitle.getAttribute("innerHTML").equals("Patient Page"));
 	}
 }
