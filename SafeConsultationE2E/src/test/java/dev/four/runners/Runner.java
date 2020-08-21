@@ -38,6 +38,7 @@ public class Runner {
 		patientpage = new PatientPage(driver);
 	}
 	
+	
 	@AfterClass
 	public static void tearDown() {
 		driver.quit();

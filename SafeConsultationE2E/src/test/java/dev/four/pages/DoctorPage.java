@@ -38,7 +38,7 @@ public class DoctorPage {
 		@FindBy(id="DoctorAccountButton")
 		public WebElement DoctorAccountButton;
 		
-		@FindBy(id="doc5")
+		@FindBy(id="doc1")
 		public WebElement ViewMore;
 		
 		@FindBy(id="doctorCancelBtn")
@@ -53,7 +53,7 @@ public class DoctorPage {
 		@FindBy(id="doctorTable")
 		public WebElement doctorTable;
 		
-		@FindBy(id="doctortdstatus5")
+		@FindBy(id="doctortdstatus1")
 		public WebElement DoctorStatus;
 		
 		@FindBy(id="DoctorViewMorePopup")
