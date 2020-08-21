@@ -32,7 +32,7 @@
         <td>{{app.status}}</td>
         <td>{{app.aptTime | date:"MM/dd/yy"}}</td>
         <td>{{app.aptTime | date:"h/mm a"}}</td>
-        <td><button (click)="clickBtn(app.aid,app.doctor.did)">More Info</button></td>       
+        <td><button id="app.aid" (click)="clickBtn(app.aid,app.doctor.did)">More Info</button></td>       
     </tr>
 </table>
 

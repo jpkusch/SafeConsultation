@@ -1,4 +1,4 @@
-<h1>View More</h1>
+<h1 id="viewmore">View More</h1>
    
         <div *ngIf="router.url === '/doctor'">
            <h2>Appointment Details</h2>
@@ -33,7 +33,7 @@
             <p *ngIf="appointment.diagnosis != ''">Diagnosis: {{appointment.diagnosis}}</p>
             <p *ngIf="appointment.treatment != ''">Treatment: {{appointment.treatment}}</p>
             <button (click)="rescheduleAppPatient()">Reschedule Appointment</button>
-            <button (click)="cancelAppPatient()">Cancel Appointment</button>
+            <button id="cancelApptButton" (click)="cancelAppPatient()">Cancel Appointment</button>
         </div>
 
     <button  mat-raised-button (click)="closeMe()">Close</button>

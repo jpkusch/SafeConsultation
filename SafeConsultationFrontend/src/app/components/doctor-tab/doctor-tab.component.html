@@ -1,12 +1,12 @@
 <div *ngIf="showAllDrs">
-    <h2>Browse Doctors</h2>
+    <h2 id="docsTab">Browse Doctors</h2>
 <table *ngIf="alldoctors.length != 0">
     <thead><th>Doctor's Name</th><th>Specialty</th><th></th></thead>
     <tr *ngFor ="let d of alldoctors"><td>{{d.username}}</td><td>{{d.specialty}}</td><td><button id="this.d.did" (click)="goToMakeAppointment(d.did)">Make Appointment</button></td></tr>
 </table>
 </div>
 <div *ngIf="makeApptTab">
-    <h2>Make an Appointment</h2>
+    <h2 id="makeApptSection">Make an Appointment</h2>
     <textarea id="symptomsfield" cols="30" rows="10" [(ngModel)] ="enteredSymptoms">Symptoms</textarea><br>
     <input id="dateTime" matInput [matDatepicker]="picker" [(ngModel)]="selectedDateTime">
     <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
