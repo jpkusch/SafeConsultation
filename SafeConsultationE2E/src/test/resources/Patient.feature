@@ -26,6 +26,7 @@ Feature: Patient gets treatment
 		When The User clicks the more information button
 		Then The update appointment popup appears
 		When The User clicks cancel appoint
+    When The user confirms cancel
 		Then The appointments tab is open again
 		Then Appoint has status cancelled
 		

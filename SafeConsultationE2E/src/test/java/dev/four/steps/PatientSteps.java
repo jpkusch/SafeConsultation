@@ -53,7 +53,8 @@ public class PatientSteps {
 
 	@Then("^An alert pops up to confirm appointment$")
 	public void an_alert_pops_up_to_confirm_appointment() throws Throwable {
-	    //Assert.assertTrue();
+		Assert.assertTrue(driver.switchTo().alert().getText().equals("Your appointment has been booked!"));
+		
 	}
 	
 	/*@Given("^The User is on the Patient Page$")
@@ -86,14 +87,14 @@ public class PatientSteps {
 		patientpage.cancelApptButton.click();
 	}
 	
-	@Then("^The appointments tab is open again$")
-	public void the_appointment_tab_is_open_again() throws Throwable {
-		//Assert.assertTrue();
+	@When("^The user confirms cancel$")
+	public void the_User_confirms_cancel() throws Throwable {
+		driver.switchTo().alert().accept();
 	}
 	
 	@Then("^Appoint has status cancelled$")
 	public void appointment_has_status_cancelled() throws Throwable {
-		//Assert.assertTrue();
+		Assert.assertTrue(patientpage.apptStatus.getAttribute("innerHTML").equals("Status: Cancelled"));
 	}
 	
 	/*@Given("^The User is on the Patient Page again$")
