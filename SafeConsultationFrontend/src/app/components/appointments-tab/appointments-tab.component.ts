@@ -94,7 +94,6 @@ export class AppointmentsTabComponent implements OnInit {
   }*/
 
   clickBtn(aid:number, userID:number){
-
       this.dialog.open(ViewMoreComponent,{ data:  { aid:aid, userID: userID}});
   }
 

@@ -1,7 +1,7 @@
 <div *ngIf="doctor" >
   <mat-form-field appearance="standard">
     <mat-label>Specialty: </mat-label>
-    <input matInput type="text" [(ngModel)]="doctor.specialty"/>
+    <input id="specialtyDoctor" matInput type="text" [(ngModel)]="doctor.specialty"/>
   </mat-form-field>
 </div>
 
@@ -14,4 +14,4 @@
   </mat-form-field>
 </div>
 
-<button mat-raised-button (click)="updateUser()">Update</button>
+<button id="updateAccountDoctor" mat-raised-button (click)="updateUser()">Update</button>

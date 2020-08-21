@@ -1,6 +1,7 @@
 <h1>View More</h1>
+   
+        <div *ngIf="router.url === '/doctor'" id="DoctorViewMorePopup">
 
-        <div *ngIf="router.url === '/doctor'">
            <h2>Appointment Details</h2>
             <p>Patient: {{patient.username}}</p>
             <p>Symptoms: {{appointment.symptoms}}</p>
@@ -12,8 +13,9 @@
             <p>Time: {{appointment.aptTime | date:"h/mm a"}}</p>
             <p>Meeting link: {{appointment.meetingLink}}</p>
             <p>Status: {{appointment.status}}</p>
+
             <button mat-raised-button (click)="rescheduleAppDoctor()">Reschedule Appointment</button>
-            <button mat-raised-button (click)="cancelAppDoctor()">Cancel Appointment</button>
+            <button mat-raised-button id="doctorCancelBtn" (click)="cancelAppDoctor()">Cancel Appointment</button>
 
             <br/>
             <mat-form-field appearance="standard">
