@@ -14,6 +14,7 @@ public class DoctorPage {
 		PageFactory.initElements(driver, this);
 	}
 	
+<<<<<<< HEAD
 	
 	// Buttons
 		@FindBy(name="patient")
@@ -79,6 +80,11 @@ public class DoctorPage {
 		@FindBy(id="signupTitle")
 		public WebElement signupTitle;
 		
+=======
+	// Other Objects
+	@FindBy(id="doctorTitle")
+	public WebElement doctorTitle;
+>>>>>>> eefbd9a58debebbdfb82f9c748497efd60b7ce77
 
 	
 }

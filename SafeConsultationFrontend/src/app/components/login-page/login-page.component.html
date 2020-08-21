@@ -10,14 +10,14 @@
 <div>
     <mat-form-field hintLabel="Min 6 characters:" appearance="standard">
         <mat-label >Username</mat-label>
-        <input #userInput id = "usernameField" matInput placeholder="Username" [(ngModel)]="username" required minlength="6">
+        <input #userInput id="usernameField" matInput placeholder="Username" [(ngModel)]="username" required minlength="6">
         <mat-hint align="end">{{userInput.value?.length || 0}}/6</mat-hint>
         <mat-error>Username must have a value</mat-error>
     </mat-form-field>
     <br>
     <mat-form-field hintLabel="Min 6 characters:" appearance="standard">
         <mat-label>Password</mat-label>
-        <input #passInput id = "passwordField" matInput placeholder="Password" [(ngModel)]="password" required minlength="6">
+        <input #passInput id="passwordField" matInput placeholder="Password" [(ngModel)]="password" required minlength="6">
         <mat-hint align="end">{{passInput.value?.length || 0}}/6</mat-hint>
         <mat-error>Password must have a value</mat-error>
     </mat-form-field>
@@ -25,7 +25,7 @@
 <div *ngIf = "userType === 'doctor' && showSignUp">
     <mat-form-field hintLabel="Min 3 characters:" appearance="standard">
         <mat-label>Specialty</mat-label>
-        <input #specInput id = "specialtyField" matInput placeholder="Specialty" [(ngModel)]="specialty" required minlength="3">
+        <input #specInput id="specialtyField" matInput placeholder="Specialty" [(ngModel)]="specialty" required minlength="3">
         <mat-hint align="end">{{specInput.value?.length || 0}}/3</mat-hint>
         <mat-error>Specialty must have a value</mat-error>
     </mat-form-field>
@@ -33,23 +33,23 @@
 <div *ngIf = "userType === 'patient' && showSignUp">
     <mat-form-field appearance="standard">
         <mat-label>Age (years)</mat-label>
-        <input id = "ageField" type="number" matInput placeholder="Age" [(ngModel)]="age"required>
+        <input id="ageField" type="number" matInput placeholder="Age" [(ngModel)]="age"required>
         <mat-error>Age must have a value</mat-error>
     </mat-form-field>
     <br>
     <mat-form-field appearance="standard">
         <mat-label>Weight (pounds)</mat-label>
-        <input id = "weightField" type="number" matInput placeholder="Weight" [(ngModel)]="weight">
+        <input id="weightField" type="number" matInput placeholder="Weight" [(ngModel)]="weight">
     </mat-form-field>
     <br>
     <mat-form-field appearance="standard">
         <mat-label>Height (inches)</mat-label>
-        <input id = "heightField" type="number" matInput placeholder="Height" [(ngModel)]="height">
+        <input id="heightField" type="number" matInput placeholder="Height" [(ngModel)]="height">
     </mat-form-field>
     <br>
     <mat-form-field appearance="standard">
         <mat-label>Blood Type</mat-label>
-        <input id = "bloodTypeField" type="text" matInput placeholder="Blood Type" [(ngModel)]="bloodType">
+        <input id="bloodTypeField" type="text" matInput placeholder="Blood Type" [(ngModel)]="bloodType">
     </mat-form-field>
 </div>
 <div *ngIf = "showSignUp">

@@ -1,43 +1,51 @@
-<table *ngIf="loginDoctor !== null" id="doctorTable">
-    <tr>
-        <th>ID</th>
-        <th>Patient</th>
-        <th>Status</th>
-        <th>Date</th>
-        <th>Time</th>
-        <th>More Info</th>
-    </tr>
-<tr *ngFor = "let app of appointments">
-        <td [(ngModel)]="app.aid" ngDefaultControl>{{app.aid}}</td>
-        <td [(ngModel)]="app.patient.pid" ngDefaultControl>{{app.patient.username}}</td>
-        <td id="doctortdstatus{{app.aid}}">{{app.status}}</td>
-        <td>{{app.aptTime | date:"MM/dd/yy"}}</td>
-        <td>{{app.aptTime | date:"h/mm a"}}</td>
-        <td><button id="doc{{app.aid}}" (click)="clickBtn(app.aid,app.patient.pid)">More Info</button></td>       
-    </tr>
-</table>
 
-<table *ngIf="loginPatient !== null">
-    <tr>
-        <th>ID</th>
-        <th>Doctor</th>
-        <th>Status</th>
-        <th>Date</th>
-        <th>Time</th>
-        <th>More Info</th>
-    </tr>
-<tr *ngFor = "let app of appointments">
-        <td [(ngModel)]="app.aid" ngDefaultControl>{{app.aid}}</td>
-        <td [(ngModel)]="app.doctor.did" ngDefaultControl>{{app.doctor.username}}</td>
-        <td>{{app.status}}</td>
-        <td>{{app.aptTime | date:"MM/dd/yy"}}</td>
-        <td>{{app.aptTime | date:"h/mm a"}}</td>
-        <td><button (click)="clickBtn(app.aid,app.doctor.did)">More Info</button></td>       
-    </tr>
-</table>
+<div *ngIf="dataSource">
+  <table mat-table [dataSource]="dataSource" id="doctorTable">
+    <ng-container matColumnDef="ID">
+      <th mat-header-cell *matHeaderCellDef> ID </th>
+      <td mat-cell *matCellDef="let appointment">{{appointment.aid}}</td>
+    </ng-container>
 
+    <ng-container *ngIf="loginDoctor"  matColumnDef="Patient">
+      <th mat-header-cell *matHeaderCellDef> Patient </th>
+      <td mat-cell *matCellDef="let appointment">{{appointment.patient.username}}</td>
+    </ng-container>
 
+    <ng-container *ngIf="loginPatient"  matColumnDef="Doctor">
+      <th mat-header-cell *matHeaderCellDef> Doctor </th>
+      <td mat-cell *matCellDef="let appointment">{{appointment.doctor.username}}</td>
+    </ng-container>
 
+    <ng-container matColumnDef="Status">
+      <th mat-header-cell *matHeaderCellDef> Status </th>
+      <td mat-cell *matCellDef="let appointment" id="doctortdstatus{{appointment.aid}}">{{appointment.status}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="Date">
+      <th mat-header-cell *matHeaderCellDef> Date </th>
+      <td mat-cell *matCellDef="let appointment">{{appointment.aptTime | date:"MM/dd/yy"}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="Time">
+      <th mat-header-cell *matHeaderCellDef> Time </th>
+      <td mat-cell *matCellDef="let appointment">{{appointment.aptTime | date:"h/mm a"}}</td>
+    </ng-container>
+
+    <ng-container *ngIf="loginDoctor"  matColumnDef="MoreInfo">
+      <th mat-header-cell *matHeaderCellDef> </th>
+      <td mat-cell *matCellDef="let appointment"><button mat-raised-button (click)="clickBtn(appointment.aid,appointment.patient.pid)">More Info</button></td>
+    </ng-container>
+
+    <ng-container *ngIf="loginPatient"  matColumnDef="MoreInfo">
+      <th mat-header-cell *matHeaderCellDef> </th>
+      <td mat-cell *matCellDef="let appointment"><button mat-raised-button (click)="clickBtn(appointment.aid,appointment.doctor.did)" id="doc{{app.aid}}">More Info</button></td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+</div>
+>>>>>>> eefbd9a58debebbdfb82f9c748497efd60b7ce77
 
 
 

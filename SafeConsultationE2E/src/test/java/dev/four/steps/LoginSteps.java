@@ -7,12 +7,16 @@ import cucumber.api.PendingException;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import dev.four.pages.DoctorPage;
 import dev.four.pages.LoginPage;
+import dev.four.pages.PatientPage;
 import dev.four.runners.Runner;
 
 public class LoginSteps {
 	
 	public static LoginPage loginpage = Runner.loginpage;
+	public static DoctorPage doctorpage = Runner.doctorpage;
+	public static PatientPage patientpage = Runner.patientpage;
 	public static WebDriver driver = Runner.driver;
 	
 	@Given("^The User is on the login page$")
@@ -70,12 +74,6 @@ public class LoginSteps {
 		loginpage.signupButton.click();
 	}
 
-	@Then("^The User is on the Patient page$")
-	public void the_User_is_on_the_Patient_page() throws Throwable {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new PendingException();
-	}
-
 	@When("^The User types \"([^\"]*)\" into the login username field$")
 	public void the_User_types_into_the_login_username_field(String arg1) throws Throwable {
 	    loginpage.usernameField.sendKeys(arg1);
@@ -101,10 +99,13 @@ public class LoginSteps {
 	    loginpage.specialtyField.sendKeys(arg1);
 	}
 
-	@Then("^The User is on the Doctor page$")
-	public void the_User_is_on_the_Doctor_page() throws Throwable {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new PendingException();
+	@Then("^The User is on the Doctor Page$")
+	public void the_User_is_on_the_Doctor_Page() throws Throwable {
+		Assert.assertTrue(doctorpage.doctorTitle.getAttribute("innerHTML").equals("Doctor Page"));
 	}
 
+	@Then("^The User is on the Patient Page$")
+	public void the_User_is_on_the_Patient_Page() throws Throwable {
+		Assert.assertTrue(patientpage.patientTitle.getAttribute("innerHTML").equals("Patient Page"));
+	}
 }

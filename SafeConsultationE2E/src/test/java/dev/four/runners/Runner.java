@@ -32,7 +32,7 @@ public class Runner {
 		File file = new File("src/main/resources/chromedriver.exe");
 		System.setProperty("webdriver.chrome.driver", file.getAbsolutePath());
 		driver = new ChromeDriver();
-		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
 		loginpage = new LoginPage(driver);
 		doctorpage = new DoctorPage(driver);
 		patientpage = new PatientPage(driver);

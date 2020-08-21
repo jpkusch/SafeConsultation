@@ -1,6 +1,7 @@
 <h1>View More</h1>
    
         <div *ngIf="router.url === '/doctor'" id="DoctorViewMorePopup">
+
            <h2>Appointment Details</h2>
             <p>Patient: {{patient.username}}</p>
             <p>Symptoms: {{appointment.symptoms}}</p>
@@ -12,15 +13,26 @@
             <p>Time: {{appointment.aptTime | date:"h/mm a"}}</p>
             <p>Meeting link: {{appointment.meetingLink}}</p>
             <p>Status: {{appointment.status}}</p>
-            <button (click)="rescheduleAppDoctor()">Reschedule Appointment</button>
-            <button id="doctorCancelBtn" (click)="cancelAppDoctor()">Cancel Appointment</button>
 
-            <p>Diagnosis: <input type="text" placeholder={{appointment.diagnosis}} [(ngModel)] = "diagnosis" ></p>
-            <p>Treatment: <input type="text" placeholder={{appointment.treatment}} [(ngModel)] = "treatment" ></p>
+            <button mat-raised-button (click)="rescheduleAppDoctor()">Reschedule Appointment</button>
+            <button mat-raised-button id="doctorCancelBtn" (click)="cancelAppDoctor()">Cancel Appointment</button>
 
-            <button (click)="prescription()">Prescription</button>
-      
-        </div>
+            <br/>
+            <mat-form-field appearance="standard">
+              <mat-label>Diagnosis: </mat-label>
+              <input matInput type="text" placeholder={{appointment.diagnosis}} [(ngModel)] = "diagnosis" >
+            </mat-form-field>
+
+            <mat-form-field>
+              <mat-label>Treatment: </mat-label>
+              <input matInput type="text" placeholder={{appointment.treatment}} [(ngModel)] = "treatment" >
+            </mat-form-field>
+
+            <br/>
+
+            <button mat-raised-button (click)="prescription()">Prescription</button>
+
+          </div>
 
         <div *ngIf="router.url === '/patient'">
             <h2>Appointment Details</h2>
@@ -32,9 +44,8 @@
             <p>Status: {{appointment.status}}</p>
             <p *ngIf="appointment.diagnosis != ''">Diagnosis: {{appointment.diagnosis}}</p>
             <p *ngIf="appointment.treatment != ''">Treatment: {{appointment.treatment}}</p>
-            <button (click)="rescheduleAppPatient()">Reschedule Appointment</button>
-            <button (click)="cancelAppPatient()">Cancel Appointment</button>
+            <button mat-raised-button (click)="rescheduleAppPatient()">Reschedule Appointment</button>
+            <button mat-raised-button (click)="cancelAppPatient()">Cancel Appointment</button>
         </div>
 
-    <button  mat-raised-button (click)="closeMe()">Close</button>
-
+    <button mat-raised-button (click)="closeMe()">Close</button>
