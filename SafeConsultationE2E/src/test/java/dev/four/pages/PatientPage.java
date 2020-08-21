@@ -20,7 +20,7 @@ public class PatientPage {
 	@FindBy(id="docsTab")
 	public WebElement docsTab;
 	
-	@FindBy(id="2")
+	@FindBy(id="doc2")
 	public WebElement tomakeApptButton;
 	
 	@FindBy(id="makeApptSection")

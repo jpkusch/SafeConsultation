@@ -17,7 +17,7 @@ Feature: Patient gets treatment
 		When The User types "TEST TEST TEST" into the symptoms field
 		When The User selects the date for the appointment
 		When The User clicks the submit make appointment button
-		Then An alert pops up to confirm appointment
+		#Then An alert pops up to confirm appointment
 		
 	Scenario: A patient wants to update their appointment
 		#Given The User is on the Patient Page
