@@ -118,7 +118,8 @@ export class ViewMoreComponent implements OnInit {
       //this.appointment.doctor = this.doctor;
       console.log(this.appointment);
       await this.appointService.updateAppointment(this.appointment);
-      await this.appointService.getAppointmentByPatient(this.patient.pid)
+      alert("Appointment has been cancelled");
+      await this.appointService.getAppointmentByPatient(this.patient.pid);
     }
 
     async prescription(){
