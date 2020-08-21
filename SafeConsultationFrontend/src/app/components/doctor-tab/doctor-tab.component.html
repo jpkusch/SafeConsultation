@@ -1,8 +1,24 @@
 <div *ngIf="showAllDrs">
     <h2 id="docsTab">Browse Doctors</h2>
-<table *ngIf="alldoctors.length != 0">
-    <thead><th>Doctor's Name</th><th>Specialty</th><th></th></thead>
-    <tr *ngFor ="let d of alldoctors"><td>{{d.username}}</td><td>{{d.specialty}}</td><td><button id="this.d.did" (click)="goToMakeAppointment(d.did)">Make Appointment</button></td></tr>
+    <table mat-table [dataSource]="dataSource" *ngIf="alldoctors.length != 0">
+        <ng-container matColumnDef="username">
+            <th mat-header-cell *matHeaderCellDef>Doctor's Name</th>
+            <td mat-cell *matCellDef="let doctor">{{doctor.username}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="specialty">
+            <th mat-header-cell *matHeaderCellDef>Specialty</th>
+            <td mat-cell *matCellDef="let doctor">{{doctor.specialty}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="button">
+            <th mat-header-cell *matHeaderCellDef>Button</th>
+            <td mat-cell *matCellDef="let doctor"><button id="this.d.did" mat-raised-button (click)="goToMakeAppointment(doctor.did)">Make Appointment</button></td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
+        <tr mat-row *matRowDef="let row; columns: columnsToDisplay"></tr> 
+
 </table>
 </div>
 <div *ngIf="makeApptTab">
@@ -11,5 +27,6 @@
     <input id="dateTime" matInput [matDatepicker]="picker" [(ngModel)]="selectedDateTime">
     <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
     <mat-datepicker #picker></mat-datepicker>
-    <p><button id="createAppt" (click)="makeAppointment(bookedAppointment)">Schedule Appointment</button></p>
+    <p><button mat-raised-button id="createAppt" (click)="makeAppointment(bookedAppointment)">Schedule Appointment</button></p>
 </div>
+
