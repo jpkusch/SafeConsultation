@@ -9,7 +9,7 @@ Feature: Patient gets treatment
 		Then The User is on the Patient Page
 		
 	Scenario: A patient wants to make an appointment
-		Given The User is on the Patient Page
+		#Given The User is on the Patient Page
 		When The User clicks the doctor tab button
 		Then The doctor tab is open
 		When The User clicks the make an appointment button
@@ -20,17 +20,18 @@ Feature: Patient gets treatment
 		Then An alert pops up to confirm appointment
 		
 	Scenario: A patient wants to update their appointment
-		Given The User is on the Patient Page
-		When The User clicks the appointment tab button
-		Then The appointments tab is open
-		When The User clicks the more info button
+		#Given The User is on the Patient Page
+		When The User clicks the appointment button
+		Then The appointments is open
+		When The User clicks the more information button
 		Then The update appointment popup appears
-		When The User clicks cancel appointment
-		When The user confirms cancel
-		Then Appointment has status cancelled
+		When The User clicks cancel appoint
+    When The user confirms cancel
+		Then The appointments tab is open again
+		Then Appoint has status cancelled
 		
 	Scenario: A patient wants to update their information
-		Given The User is on the Patient Page again
+		#Given The User is on the Patient Page again
 		When The User clicks the update info button
 		Then The account info tab is open
 		When The User types "AB+" into the blood type field

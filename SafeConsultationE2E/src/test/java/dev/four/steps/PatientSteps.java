@@ -57,12 +57,12 @@ public class PatientSteps {
 		
 	}
 	
-	@Given("^The User is on the Patient Page$")
+	/*@Given("^The User is on the Patient Page$")
 	public void the_User_is_on_the_patient_page() throws Throwable {
 		patientpage.acctInfoButton.click();
-	}
+	}*/
 	
-	@When("^The User clicks the appointment tab button$")
+	@When("^The User clicks the appointment button$")
 	public void the_User_clics_the_appointment_tab_button() throws Throwable {
 		patientpage.apptsTabButton.click();
 	}
@@ -72,7 +72,7 @@ public class PatientSteps {
 		Assert.assertTrue(patientpage.userInfo.getAttribute("innerHTML").equals("User Information"));
 	}
 	
-	@When("^The User clicks the more info button$")
+	@When("^The User clicks the more information button$")
 	public void the_User_clicks_the_more_info_button() throws Throwable {
 		patientpage.appMoreInfoButton.click();
 	}
@@ -82,7 +82,7 @@ public class PatientSteps {
 		Assert.assertTrue(patientpage.updateApptPopUp.getAttribute("innerHTML").equals("View More"));
 	}
 	
-	@When("^The User clicks cancel appointment$")
+	@When("^The User clicks cancel appoint$")
 	public void the_User_clicks_cancel_appointment() throws Throwable {
 		patientpage.cancelApptButton.click();
 	}
@@ -92,15 +92,15 @@ public class PatientSteps {
 		driver.switchTo().alert().accept();
 	}
 	
-	@Then("^Appointment has status cancelled$")
+	@Then("^Appoint has status cancelled$")
 	public void appointment_has_status_cancelled() throws Throwable {
 		Assert.assertTrue(patientpage.apptStatus.getAttribute("innerHTML").equals("Status: Cancelled"));
 	}
 	
-	@Given("^The User is on the Patient Page again$")
+	/*@Given("^The User is on the Patient Page again$")
 	public void the_User_is_on_the_patient_page_again() throws Throwable {
 		patientpage.acctInfoButton.click();
-	}
+	}*/
 	
 	@When("^The User clicks the update info button$")
 	public void the_User_clicks_the_update_info_button() throws Throwable {
