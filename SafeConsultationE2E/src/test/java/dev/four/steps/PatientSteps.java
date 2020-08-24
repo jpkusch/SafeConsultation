@@ -2,6 +2,8 @@ package dev.four.steps;
 
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import cucumber.api.PendingException;
 import cucumber.api.java.en.Given;
@@ -69,7 +71,7 @@ public class PatientSteps {
 	
 	@Then("^The appointments tab is open$")
 	public void the_appointment_tab_is_open() throws Throwable {
-		Assert.assertTrue(patientpage.userInfo.getAttribute("innerHTML").equals("User Information"));
+		Assert.assertTrue(patientpage.doctorTable.isDisplayed());
 	}
 	
 	@When("^The User clicks the more information button$")
@@ -84,6 +86,8 @@ public class PatientSteps {
 	
 	@When("^The User clicks cancel appoint$")
 	public void the_User_clicks_cancel_appointment() throws Throwable {
+		WebDriverWait wait = new WebDriverWait(driver, 10);
+		wait.until(ExpectedConditions.alertIsPresent());
 		patientpage.cancelApptButton.click();
 	}
 	

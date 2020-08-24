@@ -52,7 +52,7 @@ public class DoctorServiceIntegratedTests {
 	@Order(3)
 	@Rollback
 	void updateDoctor() {
-		Doctor doctor = dserv.getDoctorById(7);
+		Doctor doctor = dserv.getDoctorById(1);
 		doctor.setSpecialty("Pediatrician");
 		doctor = dserv.updateDoctor(doctor);
 		Assertions.assertEquals(doctor.getSpecialty(), "Pediatrician");
@@ -63,7 +63,7 @@ public class DoctorServiceIntegratedTests {
 	@Rollback
 	void getAllDoctors() {
 		List<Doctor> doctors = dserv.getAllDoctors();
-		Assertions.assertEquals(doctors.size(), 7);
+		Assertions.assertEquals(doctors.size(), 5);
 	}
 	
 	@Test
@@ -72,16 +72,16 @@ public class DoctorServiceIntegratedTests {
 	void login() {
 		LoginDTO login = new LoginDTO("drMario", "HereWeGo!");
 		Doctor doctor = dserv.logIn(login);
-		Assertions.assertEquals(doctor.getSpecialty(), "Pediatrician");
+		Assertions.assertEquals(doctor.getSpecialty(), "Pediatrition");
 	}
 	
 	@Test
 	@Order(6)
 	@Rollback
 	void getPatientsByDoctor(){
-		Doctor doctor = dserv.getDoctorById(7);
+		Doctor doctor = dserv.getDoctorById(1);
 		List<Patient> patients = dserv.getAllPatientsByDoctor(doctor);
-		Assertions.assertEquals(patients.size(), 1);
+		Assertions.assertEquals(patients.size(), 3);
 	}
 	
 	@Test

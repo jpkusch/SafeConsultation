@@ -22,7 +22,7 @@ Feature: Patient gets treatment
 	Scenario: A patient wants to update their appointment
 		#Given The User is on the Patient Page
 		When The User clicks the appointment button
-		Then The appointments is open
+		Then The appointments tab is open
 		When The User clicks the more information button
 		Then The update appointment popup appears
 		When The User clicks cancel appoint

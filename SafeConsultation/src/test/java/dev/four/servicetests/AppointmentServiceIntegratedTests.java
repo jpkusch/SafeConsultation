@@ -39,8 +39,8 @@ class AppointmentServiceIntegratedTests {
 	@Order(1)
 	@Rollback
 	void createAppointment() {
-		Doctor doctor = dserv.getDoctorById(7);
-		Patient patient = pserv.getPatientById(7);
+		Doctor doctor = dserv.getDoctorById(1);
+		Patient patient = pserv.getPatientById(1);
 		
 		Appointment appointment = new Appointment(0, "cold", "reserved", LocalDateTime.now(), "", "", "zoommeeting.com", doctor, patient);
 		aserv.createAppointment(appointment);

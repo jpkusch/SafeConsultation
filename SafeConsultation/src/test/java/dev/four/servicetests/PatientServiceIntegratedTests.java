@@ -41,7 +41,7 @@ class PatientServiceIntegratedTests {
 	@Order(2)
 	@Rollback
 	void getPatient() {
-		Patient patient = pserv.getPatientById(7);
+		Patient patient = pserv.getPatientById(1);
 		Assertions.assertEquals(patient.getUsername(), "princessPeach");
 	}
 	
@@ -49,9 +49,9 @@ class PatientServiceIntegratedTests {
 	@Order(3)
 	@Rollback
 	void updatePatient() {
-		Patient patient = new Patient(7, "princessPeach", "OkeyDokey", 24, 5, 105, "O");
+		Patient patient = new Patient(1, "princessPeach", "OkeyDokey", 24, 5, 105, "O");
 		pserv.updatePatient(patient);
-		Patient update = pserv.getPatientById(7);
+		Patient update = pserv.getPatientById(1);
 		Assertions.assertEquals(update.getAge(), 24);
 	}
 	
@@ -61,7 +61,7 @@ class PatientServiceIntegratedTests {
 	void login() {
 		LoginDTO login = new LoginDTO("princessPeach", "OkeyDokey");
 		Patient patient = pserv.logIn(login);
-		Assertions.assertEquals(patient.getAge(), 24);
+		Assertions.assertEquals(patient.getAge(), 23);
 	}
 	
 	@Test
@@ -86,8 +86,8 @@ class PatientServiceIntegratedTests {
 	@Order(7)
 	@Rollback
 	void getAllDoctorsByPatient() {
-		Patient patient = pserv.getPatientById(7);
+		Patient patient = pserv.getPatientById(1);
 		List<Doctor> doctors = pserv.getAllDoctorByPatient(patient);
-		Assertions.assertEquals(doctors.size(), 1);
+		Assertions.assertEquals(doctors.size(), 2);
 	}
 }
